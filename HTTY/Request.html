@@ -1099,7 +1099,7 @@ Makes an HTTP <tt>PUT</tt> request using the path of #uri.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#query_set-instance_method" title="#query_set (instance method)">- (Object) <strong>query_set</strong>(name, value) </a>
+      <a href="#query_set-instance_method" title="#query_set (instance method)">- (Object) <strong>query_set</strong>(name, value = nil) </a>
     
 
     
@@ -2414,15 +2414,15 @@ Makes an HTTP <tt>DELETE</tt> request using the path of #uri.
       <pre class="lines">
 
 
+425
+426
+427
 428
 429
-430
-431
-432
-433</pre>
+430</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 428</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 425</span>
 
 <span class='def def kw'>def</span> <span class='dup_without_response identifier id'>dup_without_response</span>
   <span class='request identifier id'>request</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='dup identifier id'>dup</span>
@@ -2449,15 +2449,15 @@ Makes an HTTP <tt>DELETE</tt> request using the path of #uri.
       <pre class="lines">
 
 
+432
+433
+434
 435
 436
-437
-438
-439
-440</pre>
+437</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 435</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 432</span>
 
 <span class='def def kw'>def</span> <span class='establish_basic_authentication identifier id'>establish_basic_authentication</span>
   <span class='value identifier id'>value</span> <span class='assign token'>=</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='userinfo identifier id'>userinfo</span>                                                 <span class='integer val'>?
@@ -3038,14 +3038,14 @@ Makes an HTTP <tt>PATCH</tt> request using the path of #uri.
       <pre class="lines">
 
 
+439
+440
+441
 442
-443
-444
-445
-446</pre>
+443</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 442</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 439</span>
 
 <span class='def def kw'>def</span> <span class='path_query_and_fragment identifier id'>path_query_and_fragment</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='build_path_query_and_fragment identifier id'>build_path_query_and_fragment</span> <span class='symbol val'>:path</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='path identifier id'>path</span><span class='comma token'>,</span>
@@ -3224,7 +3224,7 @@ Makes an HTTP <tt>PUT</tt> request using the path of #uri.
       <div class="method_details ">
   <p class="signature " id="query_set-instance_method">
   
-    - (<tt>Object</tt>) <strong>query_set</strong>(name, value) 
+    - (<tt>Object</tt>) <strong>query_set</strong>(name, value = nil) 
   
 
   
@@ -3251,31 +3251,15 @@ query-string parameter specified by <em>name</em>.
 381
 382
 383
-384
-385
-386
-387
-388
-389
-390
-391
-392</pre>
+384</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 379</span>
 
-<span class='def def kw'>def</span> <span class='query_set identifier id'>query_set</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
-  <span class='query identifier id'>query</span>     <span class='assign token'>=</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='query identifier id'>query</span> <span class='integer val'>? </span><span class='dstring node'>&quot;&amp;#{uri.query}&amp;&quot;</span> <span class='colon op'>:</span> <span class='string val'>''</span>
-  <span class='parameter identifier id'>parameter</span> <span class='assign token'>=</span> <span class='Regexp constant id'>Regexp</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;&amp;#{Regexp.escape name}=.+?&amp;&quot;</span><span class='rparen token'>)</span>
-  <span class='if if kw'>if</span> <span class='query identifier id'>query</span> <span class='match op'>=~</span> <span class='parameter identifier id'>parameter</span>
-    <span class='new_query identifier id'>new_query</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='integer val'>?
-</span>                <span class='query identifier id'>query</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='parameter identifier id'>parameter</span><span class='comma token'>,</span> <span class='string val'>'&amp;'</span><span class='rparen token'>)</span> <span class='colon op'>:</span>
-                <span class='query identifier id'>query</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='parameter identifier id'>parameter</span><span class='comma token'>,</span> <span class='dstring node'>&quot;&amp;#{name}=#{value}&amp;&quot;</span><span class='rparen token'>)</span>
-  <span class='else else kw'>else</span>
-    <span class='new_query identifier id'>new_query</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='integer val'>? </span><span class='query identifier id'>query</span> <span class='colon op'>:</span> <span class='dstring node'>&quot;#{query}#{name}=#{value}&quot;</span>
-  <span class='end end kw'>end</span>
-  <span class='new_query identifier id'>new_query</span> <span class='assign token'>=</span> <span class='new_query identifier id'>new_query</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/^&amp;/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/&amp;$/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span>
-  <span class='new_query identifier id'>new_query</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span> <span class='if if_mod kw'>if</span> <span class='lparen token'>(</span><span class='new_query identifier id'>new_query</span> <span class='eq op'>==</span> <span class='string val'>''</span><span class='rparen token'>)</span>
+<span class='def def kw'>def</span> <span class='query_set identifier id'>query_set</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='entries identifier id'>entries</span> <span class='assign token'>=</span> <span class='current_query_entries identifier id'>current_query_entries</span>
+  <span class='add_or_replace_field identifier id'>add_or_replace_field</span><span class='lparen token'>(</span><span class='entries identifier id'>entries</span><span class='comma token'>,</span> <span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
+  <span class='new_query identifier id'>new_query</span> <span class='assign token'>=</span> <span class='entries identifier id'>entries</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span> <span class='integer val'>? </span><span class='nil nil kw'>nil</span> <span class='colon op'>:</span> <span class='entries identifier id'>entries</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>'&amp;'</span><span class='rparen token'>)</span>
   <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:query</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='new_query identifier id'>new_query</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -3309,15 +3293,25 @@ Establishes a new #uri, without the query-string parameter specified by
       <pre class="lines">
 
 
-396
-397
-398</pre>
+388
+389
+390
+391
+392
+393
+394
+395</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 396</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 388</span>
 
 <span class='def def kw'>def</span> <span class='query_unset identifier id'>query_unset</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
-  <span class='query_set identifier id'>query_set</span> <span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span>
+  <span class='return return kw'>return</span> <span class='unless unless_mod kw'>unless</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='query identifier id'>query</span>
+  <span class='entries identifier id'>entries</span> <span class='assign token'>=</span> <span class='current_query_entries identifier id'>current_query_entries</span>
+  <span class='entries identifier id'>entries</span><span class='dot token'>.</span><span class='delete_if identifier id'>delete_if</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='entry identifier id'>entry</span><span class='bitor op'>|</span>
+    <span class='entry identifier id'>entry</span> <span class='match op'>=~</span> <span class='field_matcher identifier id'>field_matcher</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+  <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:query</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='entries identifier id'>entries</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>'&amp;'</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -3349,12 +3343,12 @@ Establishes a new #uri without a query string.
       <pre class="lines">
 
 
-401
-402
-403</pre>
+398
+399
+400</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 401</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 398</span>
 
 <span class='def def kw'>def</span> <span class='query_unset_all identifier id'>query_unset_all</span>
   <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:query</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='nil nil kw'>nil</span>
@@ -3378,19 +3372,19 @@ Establishes a new #uri without a query string.
       <pre class="lines">
 
 
+445
+446
+447
 448
 449
 450
 451
 452
 453
-454
-455
-456
-457</pre>
+454</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 448</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 445</span>
 
 <span class='def def kw'>def</span> <span class='rebuild_uri identifier id'>rebuild_uri</span><span class='lparen token'>(</span><span class='changed_components identifier id'>changed_components</span><span class='rparen token'>)</span>
   <span class='return return kw'>return</span> <span class='dup_without_response identifier id'>dup_without_response</span><span class='dot token'>.</span><span class='rebuild_uri identifier id'>rebuild_uri</span><span class='lparen token'>(</span><span class='changed_components identifier id'>changed_components</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='response identifier id'>response</span>
@@ -3432,12 +3426,12 @@ Establishes a new #uri with the specified <em>scheme</em>.
       <pre class="lines">
 
 
-406
-407
-408</pre>
+403
+404
+405</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 406</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 403</span>
 
 <span class='def def kw'>def</span> <span class='scheme_set identifier id'>scheme_set</span><span class='lparen token'>(</span><span class='scheme identifier id'>scheme</span><span class='rparen token'>)</span>
   <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:scheme</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='scheme identifier id'>scheme</span>
@@ -3472,12 +3466,12 @@ Makes an HTTP <tt>TRACE</tt> request using the path of #uri.
       <pre class="lines">
 
 
-411
-412
-413</pre>
+408
+409
+410</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 411</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 408</span>
 
 <span class='def def kw'>def</span> <span class='trace! fid id'>trace!</span>
   <span class='request! fid id'>request!</span> <span class='symbol val'>:trace</span>
@@ -3512,13 +3506,13 @@ Establishes a new #uri with the specified <em>userinfo</em>.
       <pre class="lines">
 
 
-416
-417
-418
-419</pre>
+413
+414
+415
+416</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 416</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 413</span>
 
 <span class='def def kw'>def</span> <span class='userinfo_set identifier id'>userinfo_set</span><span class='lparen token'>(</span><span class='username identifier id'>username</span><span class='comma token'>,</span> <span class='password identifier id'>password</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='userinfo identifier id'>userinfo</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='username identifier id'>username</span><span class='comma token'>,</span> <span class='password identifier id'>password</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='compact identifier id'>compact</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>':'</span><span class='rparen token'>)</span>
@@ -3554,12 +3548,12 @@ Establishes a new #uri without userinfo.
       <pre class="lines">
 
 
-422
-423
-424</pre>
+419
+420
+421</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 422</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 419</span>
 
 <span class='def def kw'>def</span> <span class='userinfo_unset identifier id'>userinfo_unset</span>
   <span class='userinfo_set identifier id'>userinfo_set</span> <span class='nil nil kw'>nil</span>
@@ -3575,7 +3569,7 @@ Establishes a new #uri without userinfo.
 </div>
     
     <div id="footer">
-  Generated on Sat Dec 18 16:47:28 2010 by 
+  Generated on Sat Dec 18 17:10:31 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
