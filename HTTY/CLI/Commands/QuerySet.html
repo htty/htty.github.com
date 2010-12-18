@@ -73,7 +73,7 @@
   
     
       <dt class="r2">Includes:</dt>
-      <dd class="r2"><span class='object_link'><a href="../UrlEscaping.html" title="HTTY::CLI::UrlEscaping (module)">UrlEscaping</a></span></dd>
+      <dd class="r2"><span class='object_link'><a href="../Display.html" title="HTTY::CLI::Display (module)">Display</a></span>, <span class='object_link'><a href="../UrlEscaping.html" title="HTTY::CLI::UrlEscaping (module)">UrlEscaping</a></span></dd>
       
     
   
@@ -350,12 +350,12 @@ should appear.
       <pre class="lines">
 
 
-20
-21
-22</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 23</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='category identifier id'>category</span>
   <span class='string val'>'Navigation'</span>
@@ -391,15 +391,15 @@ command.
       <pre class="lines">
 
 
-25
-26
-27</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 28</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='command_line_arguments identifier id'>command_line_arguments</span>
-  <span class='string val'>'name [value [name [value]] ...]'</span>
+  <span class='string val'>'NAME [VALUE [NAME [VALUE ...]]]'</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -431,12 +431,12 @@ Returns the help text for the _query-set_ command.
       <pre class="lines">
 
 
-30
-31
-32</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 33</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='help identifier id'>help</span>
   <span class='string val'>&quot;Sets query-string parameters in the request's address&quot;</span>
@@ -471,24 +471,32 @@ Returns the extended help text for the _query-set_ command.
       <pre class="lines">
 
 
-35
-36
-37
 38
 39
 40
 41
 42
-43</pre>
+43
+44
+45
+46
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 38</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='help_extended identifier id'>help_extended</span>
   <span class='string val'>'Sets one or more query-string parameters used for the request. Does not '</span> <span class='plus op'>+</span>
   <span class='string val'>&quot;communicate with the host.\n&quot;</span>                                             <span class='plus op'>+</span>
   <span class='string val'>&quot;\n&quot;</span>                                                                       <span class='plus op'>+</span>
-  <span class='string val'>'The name(s) and value(s) of the query-string parameter will be URL-'</span>      <span class='plus op'>+</span>
+  <span class='string val'>'The difference between this command and '</span>                                 <span class='plus op'>+</span>
+  <span class='dstring node'>&quot;#{strong HTTY::CLI::Commands::QueryAdd.command_line} is that this &quot;</span>       <span class='plus op'>+</span>
+  <span class='string val'>&quot;command replaces any duplicate parameters instead of adding more.\n&quot;</span>      <span class='plus op'>+</span>
+  <span class='string val'>&quot;\n&quot;</span>                                                                       <span class='plus op'>+</span>
+  <span class='string val'>'The name(s) and value(s) of the query-string parameter(s) will be URL-'</span>   <span class='plus op'>+</span>
   <span class='string val'>&quot;encoded if necessary.\n&quot;</span>                                                  <span class='plus op'>+</span>
   <span class='string val'>&quot;\n&quot;</span>                                                                       <span class='plus op'>+</span>
   <span class='string val'>'The console prompt shows the address for the current request.'</span>
@@ -523,18 +531,22 @@ Returns related command classes for the _query-set_ command.
       <pre class="lines">
 
 
-46
-47
-48
-49
-50</pre>
+53
+54
+55
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 53</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='see_also_commands identifier id'>see_also_commands</span>
   <span class='lbrack token'>[</span><span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QueryUnset constant id'>QueryUnset</span><span class='comma token'>,</span>
    <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QueryUnsetAll constant id'>QueryUnsetAll</span><span class='comma token'>,</span>
+   <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QueryAdd constant id'>QueryAdd</span><span class='comma token'>,</span>
+   <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QueryRemove constant id'>QueryRemove</span><span class='comma token'>,</span>
    <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='Address constant id'>Address</span><span class='rbrack token'>]</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -573,27 +585,27 @@ Performs the _query-set_ command.
       <pre class="lines">
 
 
-53
-54
-55
-56
-57
-58
-59
-60
-61
 62
-63</pre>
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_set.rb', line 62</span>
 
 <span class='def def kw'>def</span> <span class='perform identifier id'>perform</span>
   <span class='add_request_if_has_response identifier id'>add_request_if_has_response</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='request identifier id'>request</span><span class='bitor op'>|</span>
     <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='notify_if_cookies_cleared identifier id'>notify_if_cookies_cleared</span> <span class='request identifier id'>request</span> <span class='do do kw'>do</span>
       <span class='escaped_arguments identifier id'>escaped_arguments</span> <span class='assign token'>=</span> <span class='escape_or_warn_of_escape_sequences identifier id'>escape_or_warn_of_escape_sequences</span><span class='lparen token'>(</span><span class='arguments identifier id'>arguments</span><span class='rparen token'>)</span>
-      <span class='in_groups_of identifier id'>in_groups_of</span><span class='lparen token'>(</span><span class='integer val'>2</span><span class='comma token'>,</span> <span class='escaped_arguments identifier id'>escaped_arguments</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='key_value identifier id'>key_value</span><span class='bitor op'>|</span>
-        <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='query_set identifier id'>query_set</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='key_value identifier id'>key_value</span><span class='rparen token'>)</span>
+      <span class='escaped_arguments identifier id'>escaped_arguments</span><span class='dot token'>.</span><span class='each_slice identifier id'>each_slice</span> <span class='integer val'>2</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='bitor op'>|</span>
+        <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='query_set identifier id'>query_set</span> <span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
       <span class='end end kw'>end</span>
       <span class='request identifier id'>request</span>
     <span class='end end kw'>end</span>
@@ -610,7 +622,7 @@ Performs the _query-set_ command.
 </div>
     
     <div id="footer">
-  Generated on Sat Dec 18 17:10:32 2010 by 
+  Generated on Sat Dec 18 17:23:18 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

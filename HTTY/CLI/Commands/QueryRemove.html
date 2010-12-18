@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta name="Content-Type" content="text/html; charset=utf-8" />
-<title>Class: HTTY::CLI::Commands::PathSet</title>
+<title>Class: HTTY::CLI::Commands::QueryRemove</title>
 <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
@@ -23,10 +23,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../../../_index.html">Index (P)</a> &raquo; 
+    <a href="../../../_index.html">Index (Q)</a> &raquo; 
     <span class='title'><span class='object_link'><a href="../../../HTTY.html" title="HTTY (module)">HTTY</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../CLI.html" title="HTTY::CLI (class)">CLI</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Commands.html" title="HTTY::CLI::Commands (module)">Commands</a></span></span>
      &raquo; 
-    <span class="title">PathSet</span>
+    <span class="title">QueryRemove</span>
   
   
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -43,7 +43,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: HTTY::CLI::Commands::PathSet
+    <div id="content"><h1>Class: HTTY::CLI::Commands::QueryRemove
   
   
   
@@ -60,7 +60,7 @@
           
             <li class="next"><span class='object_link'><a href="../Command.html" title="HTTY::CLI::Command (class)">HTTY::CLI::Command</a></span></li>
           
-            <li class="next">HTTY::CLI::Commands::PathSet</li>
+            <li class="next">HTTY::CLI::Commands::QueryRemove</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -73,14 +73,14 @@
   
     
       <dt class="r2">Includes:</dt>
-      <dd class="r2"><span class='object_link'><a href="../UrlEscaping.html" title="HTTY::CLI::UrlEscaping (module)">UrlEscaping</a></span></dd>
+      <dd class="r2"><span class='object_link'><a href="../Display.html" title="HTTY::CLI::Display (module)">Display</a></span>, <span class='object_link'><a href="../UrlEscaping.html" title="HTTY::CLI::UrlEscaping (module)">UrlEscaping</a></span></dd>
       
     
   
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/htty/cli/commands/path_set.rb</dd>
+    <dd class="r1 last">lib/htty/cli/commands/query_remove.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -88,7 +88,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>
-Encapsulates the _path-set_ command.
+Encapsulates the _query-remove_ command.
 </p>
 
 
@@ -142,8 +142,8 @@ Encapsulates the _path-set_ command.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Returns the name of a category under which help for the _path-set_ command
-should appear.
+Returns the name of a category under which help for the _query-remove_
+command should appear.
 </p>
 </div></span>
   
@@ -167,7 +167,8 @@ should appear.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Returns the arguments for the command-line usage of the _path-set_ command.
+Returns the arguments for the command-line usage of the _query-remove_
+command.
 </p>
 </div></span>
   
@@ -191,7 +192,7 @@ Returns the arguments for the command-line usage of the _path-set_ command.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Returns the help text for the _path-set_ command.
+Returns the help text for the _query-remove_ command.
 </p>
 </div></span>
   
@@ -215,7 +216,7 @@ Returns the help text for the _path-set_ command.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Returns the extended help text for the _path-set_ command.
+Returns the extended help text for the _query-remove_ command.
 </p>
 </div></span>
   
@@ -239,7 +240,7 @@ Returns the extended help text for the _path-set_ command.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Returns related command classes for the _path-set_ command.
+Returns related command classes for the _query-remove_ command.
 </p>
 </div></span>
   
@@ -272,7 +273,7 @@ Returns related command classes for the _path-set_ command.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Performs the _path-set_ command.
+Performs the _query-remove_ command.
 </p>
 </div></span>
   
@@ -334,8 +335,8 @@ Performs the _path-set_ command.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Returns the name of a category under which help for the _path-set_ command
-should appear.
+Returns the name of a category under which help for the _query-remove_
+command should appear.
 </p>
 
 
@@ -349,12 +350,12 @@ should appear.
       <pre class="lines">
 
 
-18
-19
-20</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/path_set.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_remove.rb', line 23</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='category identifier id'>category</span>
   <span class='string val'>'Navigation'</span>
@@ -375,7 +376,8 @@ should appear.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Returns the arguments for the command-line usage of the _path-set_ command.
+Returns the arguments for the command-line usage of the _query-remove_
+command.
 </p>
 
 
@@ -389,15 +391,15 @@ Returns the arguments for the command-line usage of the _path-set_ command.
       <pre class="lines">
 
 
-23
-24
-25</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/path_set.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_remove.rb', line 29</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='command_line_arguments identifier id'>command_line_arguments</span>
-  <span class='string val'>'PATH'</span>
+  <span class='string val'>'NAME [VALUE]'</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -415,7 +417,7 @@ Returns the arguments for the command-line usage of the _path-set_ command.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Returns the help text for the _path-set_ command.
+Returns the help text for the _query-remove_ command.
 </p>
 
 
@@ -429,15 +431,15 @@ Returns the help text for the _path-set_ command.
       <pre class="lines">
 
 
-28
-29
-30</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/path_set.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_remove.rb', line 34</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='help identifier id'>help</span>
-  <span class='string val'>&quot;Changes the path of the request's address&quot;</span>
+  <span class='string val'>&quot;Removes query-string parameters from the end of the request's address&quot;</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -455,7 +457,7 @@ Returns the help text for the _path-set_ command.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Returns the extended help text for the _path-set_ command.
+Returns the extended help text for the _query-remove_ command.
 </p>
 
 
@@ -469,24 +471,36 @@ Returns the extended help text for the _path-set_ command.
       <pre class="lines">
 
 
-33
-34
-35
-36
-37
-38
 39
-40</pre>
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/path_set.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_remove.rb', line 39</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='help_extended identifier id'>help_extended</span>
-  <span class='string val'>'Changes the path used for the request. Does not communicate with the '</span> <span class='plus op'>+</span>
-  <span class='string val'>&quot;host.\n&quot;</span>                                                               <span class='plus op'>+</span>
-  <span class='string val'>&quot;\n&quot;</span>                                                                    <span class='plus op'>+</span>
-  <span class='string val'>&quot;The path will be URL-encoded if necessary.\n&quot;</span>                          <span class='plus op'>+</span>
-  <span class='string val'>&quot;\n&quot;</span>                                                                    <span class='plus op'>+</span>
+  <span class='string val'>'Removes one or more a query-string parameters used for the request. '</span>     <span class='plus op'>+</span>
+  <span class='string val'>&quot;Does not communicate with the host.\n&quot;</span>                                    <span class='plus op'>+</span>
+  <span class='string val'>&quot;\n&quot;</span>                                                                       <span class='plus op'>+</span>
+  <span class='string val'>'The difference between this command and '</span>                                 <span class='plus op'>+</span>
+  <span class='dstring node'>&quot;#{strong HTTY::CLI::Commands::QueryUnset.command_line} is that this &quot;</span>     <span class='plus op'>+</span>
+  <span class='string val'>'command removes matching parameters one at a time from the end of the '</span>   <span class='plus op'>+</span>
+  <span class='string val'>&quot;address instead of removing all matches.\n&quot;</span>                               <span class='plus op'>+</span>
+  <span class='string val'>&quot;\n&quot;</span>                                                                       <span class='plus op'>+</span>
+  <span class='string val'>'The name and value of the query-string parameter will be URL-encoded if '</span> <span class='plus op'>+</span>
+  <span class='string val'>&quot;necessary.\n&quot;</span>                                                             <span class='plus op'>+</span>
+  <span class='string val'>&quot;\n&quot;</span>                                                                       <span class='plus op'>+</span>
   <span class='string val'>'The console prompt shows the address for the current request.'</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -505,7 +519,7 @@ Returns the extended help text for the _path-set_ command.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Returns related command classes for the _path-set_ command.
+Returns related command classes for the _query-remove_ command.
 </p>
 
 
@@ -519,15 +533,23 @@ Returns related command classes for the _path-set_ command.
       <pre class="lines">
 
 
-43
-44
-45</pre>
+55
+56
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/path_set.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_remove.rb', line 55</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='see_also_commands identifier id'>see_also_commands</span>
-  <span class='lbrack token'>[</span><span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='Address constant id'>Address</span><span class='rbrack token'>]</span>
+  <span class='lbrack token'>[</span><span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QueryAdd constant id'>QueryAdd</span><span class='comma token'>,</span>
+   <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QuerySet constant id'>QuerySet</span><span class='comma token'>,</span>
+   <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QueryUnset constant id'>QueryUnset</span><span class='comma token'>,</span>
+   <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QueryUnsetAll constant id'>QueryUnsetAll</span><span class='comma token'>,</span>
+   <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='Address constant id'>Address</span><span class='rbrack token'>]</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -551,7 +573,7 @@ Returns related command classes for the _path-set_ command.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Performs the _path-set_ command.
+Performs the _query-remove_ command.
 </p>
 
 
@@ -565,21 +587,21 @@ Performs the _path-set_ command.
       <pre class="lines">
 
 
-48
-49
-50
-51
-52
-53
-54</pre>
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/path_set.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_remove.rb', line 64</span>
 
 <span class='def def kw'>def</span> <span class='perform identifier id'>perform</span>
   <span class='add_request_if_has_response identifier id'>add_request_if_has_response</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='request identifier id'>request</span><span class='bitor op'>|</span>
     <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='notify_if_cookies_cleared identifier id'>notify_if_cookies_cleared</span> <span class='request identifier id'>request</span> <span class='do do kw'>do</span>
-      <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='path_set identifier id'>path_set</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='escape_or_warn_of_escape_sequences identifier id'>escape_or_warn_of_escape_sequences</span><span class='lparen token'>(</span><span class='arguments identifier id'>arguments</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+      <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='query_remove identifier id'>query_remove</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='escape_or_warn_of_escape_sequences identifier id'>escape_or_warn_of_escape_sequences</span><span class='lparen token'>(</span><span class='arguments identifier id'>arguments</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
@@ -594,7 +616,7 @@ Performs the _path-set_ command.
 </div>
     
     <div id="footer">
-  Generated on Sat Dec 18 17:23:14 2010 by 
+  Generated on Sat Dec 18 17:23:13 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

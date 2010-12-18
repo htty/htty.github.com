@@ -350,12 +350,12 @@ command should appear.
       <pre class="lines">
 
 
-20
-21
-22</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 22</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='category identifier id'>category</span>
   <span class='string val'>'Navigation'</span>
@@ -391,15 +391,15 @@ command.
       <pre class="lines">
 
 
-26
-27
-28</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 28</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='command_line_arguments identifier id'>command_line_arguments</span>
-  <span class='string val'>'name'</span>
+  <span class='string val'>'NAME'</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -431,15 +431,15 @@ Returns the help text for the _query-unset_ command.
       <pre class="lines">
 
 
-31
-32
-33</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 33</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='help identifier id'>help</span>
-  <span class='string val'>&quot;Removes a query-string parameter from the request's address&quot;</span>
+  <span class='string val'>&quot;Removes query-string parameters from the request's address&quot;</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -471,26 +471,36 @@ Returns the extended help text for the _query-unset_ command.
       <pre class="lines">
 
 
-36
-37
 38
 39
 40
 41
 42
 43
-44</pre>
+44
+45
+46
+47
+48
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 38</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='help_extended identifier id'>help_extended</span>
-  <span class='string val'>'Removes a query-string parameter used for the request. Does not '</span> <span class='plus op'>+</span>
-  <span class='string val'>&quot;communicate with the host.\n&quot;</span>                                     <span class='plus op'>+</span>
-  <span class='string val'>&quot;\n&quot;</span>                                                               <span class='plus op'>+</span>
-  <span class='string val'>'The name of the query-string parameter will be URL-encoded if '</span>   <span class='plus op'>+</span>
-  <span class='string val'>&quot;necessary.\n&quot;</span>                                                     <span class='plus op'>+</span>
-  <span class='string val'>&quot;\n&quot;</span>                                                               <span class='plus op'>+</span>
+  <span class='string val'>'Removes one or more a query-string parameters used for the request. '</span>     <span class='plus op'>+</span>
+  <span class='string val'>&quot;Does not communicate with the host.\n&quot;</span>                                    <span class='plus op'>+</span>
+  <span class='string val'>&quot;\n&quot;</span>                                                                       <span class='plus op'>+</span>
+  <span class='string val'>'The difference between this command and '</span>                                 <span class='plus op'>+</span>
+  <span class='dstring node'>&quot;#{strong HTTY::CLI::Commands::QueryRemove.command_line} is that this &quot;</span>    <span class='plus op'>+</span>
+  <span class='string val'>'command removes all matching parameters instead of removing matches one '</span> <span class='plus op'>+</span>
+  <span class='string val'>&quot;at a time from the end of the address.\n&quot;</span>                                 <span class='plus op'>+</span>
+  <span class='string val'>&quot;\n&quot;</span>                                                                       <span class='plus op'>+</span>
+  <span class='string val'>'The name of the query-string parameter will be URL-encoded if '</span>           <span class='plus op'>+</span>
+  <span class='string val'>&quot;necessary.\n&quot;</span>                                                             <span class='plus op'>+</span>
+  <span class='string val'>&quot;\n&quot;</span>                                                                       <span class='plus op'>+</span>
   <span class='string val'>'The console prompt shows the address for the current request.'</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -523,18 +533,22 @@ Returns related command classes for the _query-unset_ command.
       <pre class="lines">
 
 
-47
-48
-49
-50
-51</pre>
+54
+55
+56
+57
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 54</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='see_also_commands identifier id'>see_also_commands</span>
   <span class='lbrack token'>[</span><span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QuerySet constant id'>QuerySet</span><span class='comma token'>,</span>
    <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QueryUnsetAll constant id'>QueryUnsetAll</span><span class='comma token'>,</span>
+   <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QueryAdd constant id'>QueryAdd</span><span class='comma token'>,</span>
+   <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='QueryRemove constant id'>QueryRemove</span><span class='comma token'>,</span>
    <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='Address constant id'>Address</span><span class='rbrack token'>]</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -573,16 +587,16 @@ Performs the _query-unset_ command.
       <pre class="lines">
 
 
-54
-55
-56
-57
-58
-59
-60</pre>
+63
+64
+65
+66
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/commands/query_unset.rb', line 63</span>
 
 <span class='def def kw'>def</span> <span class='perform identifier id'>perform</span>
   <span class='add_request_if_has_response identifier id'>add_request_if_has_response</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='request identifier id'>request</span><span class='bitor op'>|</span>
@@ -602,7 +616,7 @@ Performs the _query-unset_ command.
 </div>
     
     <div id="footer">
-  Generated on Sat Dec 18 16:47:21 2010 by 
+  Generated on Sat Dec 18 17:23:07 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
