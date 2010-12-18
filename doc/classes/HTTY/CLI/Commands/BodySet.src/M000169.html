@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>perform (HTTY::CLI::Commands::BodySet)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/htty/cli/commands/body_set.rb, line 41</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">perform</span>
+    <span class="ruby-identifier">add_request_if_has_response</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">request</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">lines</span>            = []
+      <span class="ruby-identifier">empty_line_count</span> = <span class="ruby-value">0</span>
+      <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">empty_line_count</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">2</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">lines</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">$stdin</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+        <span class="ruby-identifier">empty_line_count</span> = <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-value">? </span>(<span class="ruby-identifier">empty_line_count</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) <span class="ruby-operator">:</span> <span class="ruby-value">0</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">body_set</span> <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[\r\n]+$/</span>, <span class="ruby-value str">''</span>)
+      <span class="ruby-identifier">body</span> = <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+      <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">chomp</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">body</span>
+        <span class="ruby-identifier">body</span>.<span class="ruby-identifier">chomp!</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">body_set</span> <span class="ruby-identifier">body</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,1075 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: HTTY::Request</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">HTTY::Request</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/app/htty/request_rb.html">
+                app/htty/request.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Payload.html">
+                HTTY::Payload
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Encapsulates an HTTP(S) request.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000290">==</a>&nbsp;&nbsp;
+      <a href="#M000292">address</a>&nbsp;&nbsp;
+      <a href="#M000293">body_set</a>&nbsp;&nbsp;
+      <a href="#M000294">body_unset</a>&nbsp;&nbsp;
+      <a href="#M000284">build_authority</a>&nbsp;&nbsp;
+      <a href="#M000285">build_path_query_and_fragment</a>&nbsp;&nbsp;
+      <a href="#M000286">build_uri</a>&nbsp;&nbsp;
+      <a href="#M000288">clear_cookies_if_host_changes</a>&nbsp;&nbsp;
+      <a href="#M000295">connect!</a>&nbsp;&nbsp;
+      <a href="#M000296">cookie_add</a>&nbsp;&nbsp;
+      <a href="#M000297">cookie_remove</a>&nbsp;&nbsp;
+      <a href="#M000298">cookies</a>&nbsp;&nbsp;
+      <a href="#M000299">cookies_remove_all</a>&nbsp;&nbsp;
+      <a href="#M000300">cookies_use</a>&nbsp;&nbsp;
+      <a href="#M000301">delete!</a>&nbsp;&nbsp;
+      <a href="#M000325">dup_without_response</a>&nbsp;&nbsp;
+      <a href="#M000291">eql?</a>&nbsp;&nbsp;
+      <a href="#M000326">establish_content_length</a>&nbsp;&nbsp;
+      <a href="#M000302">follow</a>&nbsp;&nbsp;
+      <a href="#M000303">fragment_set</a>&nbsp;&nbsp;
+      <a href="#M000304">fragment_unset</a>&nbsp;&nbsp;
+      <a href="#M000305">get!</a>&nbsp;&nbsp;
+      <a href="#M000306">head!</a>&nbsp;&nbsp;
+      <a href="#M000307">header_set</a>&nbsp;&nbsp;
+      <a href="#M000308">header_unset</a>&nbsp;&nbsp;
+      <a href="#M000309">headers</a>&nbsp;&nbsp;
+      <a href="#M000310">headers_unset_all</a>&nbsp;&nbsp;
+      <a href="#M000311">host_set</a>&nbsp;&nbsp;
+      <a href="#M000289">new</a>&nbsp;&nbsp;
+      <a href="#M000312">options!</a>&nbsp;&nbsp;
+      <a href="#M000287">parse_uri</a>&nbsp;&nbsp;
+      <a href="#M000313">patch!</a>&nbsp;&nbsp;
+      <a href="#M000327">path_query_and_fragment</a>&nbsp;&nbsp;
+      <a href="#M000314">path_set</a>&nbsp;&nbsp;
+      <a href="#M000315">port_set</a>&nbsp;&nbsp;
+      <a href="#M000316">post!</a>&nbsp;&nbsp;
+      <a href="#M000317">put!</a>&nbsp;&nbsp;
+      <a href="#M000318">query_set</a>&nbsp;&nbsp;
+      <a href="#M000319">query_unset</a>&nbsp;&nbsp;
+      <a href="#M000320">query_unset_all</a>&nbsp;&nbsp;
+      <a href="#M000328">rebuild_uri</a>&nbsp;&nbsp;
+      <a href="#M000321">scheme_set</a>&nbsp;&nbsp;
+      <a href="#M000322">trace!</a>&nbsp;&nbsp;
+      <a href="#M000323">userinfo_set</a>&nbsp;&nbsp;
+      <a href="#M000324">userinfo_unset</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">COOKIES_HEADER_NAME</td>
+          <td>=</td>
+          <td class="context-item-value">'Cookie'</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">METHODS_SENDING_BODY</td>
+          <td>=</td>
+          <td class="context-item-value">[:post, :put]</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">request_method</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+Returns the HTTP method of the request, if any.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">response</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+Returns the response received for the request, if any.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">response</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">uri</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+Returns the URI of the request.
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">uri</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000284" class="method-detail">
+        <a name="M000284"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000284.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000284.html');return false;">
+          <span class="method-name">build_authority</span><span class="method-args">(components)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a URI authority (a combination of userinfo, host, and port)
+corresponding to the specified <em>components</em> hash. Valid
+<em>components</em> keys include:
+</p>
+<ul>
+<li><tt>:userinfo</tt>
+
+</li>
+<li><tt>:host</tt>
+
+</li>
+<li><tt>:port</tt>
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000285" class="method-detail">
+        <a name="M000285"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000285.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000285.html');return false;">
+          <span class="method-name">build_path_query_and_fragment</span><span class="method-args">(components)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a combination of a URI path, query, and fragment, corresponding to
+the specified <em>components</em> hash. Valid <em>components</em> keys
+include:
+</p>
+<ul>
+<li><tt>:path</tt>
+
+</li>
+<li><tt>:query</tt>
+
+</li>
+<li><tt>:fragment</tt>
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000286" class="method-detail">
+        <a name="M000286"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000286.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000286.html');return false;">
+          <span class="method-name">build_uri</span><span class="method-args">(components)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a URI corresponding to the specified <em>components</em> hash, or
+raises URI::InvalidURIError. Valid <em>components</em> keys include:
+</p>
+<ul>
+<li><tt>:scheme</tt>
+
+</li>
+<li><tt>:userinfo</tt>
+
+</li>
+<li><tt>:host</tt>
+
+</li>
+<li><tt>:port</tt>
+
+</li>
+<li><tt>:path</tt>
+
+</li>
+<li><tt>:query</tt>
+
+</li>
+<li><tt>:fragment</tt>
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000289" class="method-detail">
+        <a name="M000289"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000289.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000289.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(address)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initializes a <a href="Request.html#M000289">new</a> <a
+href="Request.html">HTTY::Request</a> with a uri corresponding to the
+specified <em><a href="Request.html#M000292">address</a></em>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000287" class="method-detail">
+        <a name="M000287"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000287.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000287.html');return false;">
+          <span class="method-name">parse_uri</span><span class="method-args">(address)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a URI corresponding to the specified <em><a
+href="Request.html#M000292">address</a></em>, or raises
+URI::InvalidURIError.
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Class methods</h3>
+
+      <div id="method-M000288" class="method-detail">
+        <a name="M000288"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000288.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000288.html');return false;">
+          <span class="method-name">clear_cookies_if_host_changes</span><span class="method-args">(request) {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000290" class="method-detail">
+        <a name="M000290"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000290.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000290.html');return false;">
+          <span class="method-name">==</span><span class="method-args">(other_request)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns <tt>true</tt> if <em>other_request</em> is equivalent to the
+request.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000292" class="method-detail">
+        <a name="M000292"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000292.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000292.html');return false;">
+          <span class="method-name">address</span><span class="method-args">(address)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri corresponding to
+the specified <em><a href="Request.html#M000292">address</a></em>. If the
+host of the <em><a href="Request.html#M000292">address</a></em> is
+different from the host of uri, then <a
+href="Request.html#M000298">cookies</a> are cleared.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000293" class="method-detail">
+        <a name="M000293"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000293.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000293.html');return false;">
+          <span class="method-name">body_set</span><span class="method-args">(body)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the body of the request.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000294" class="method-detail">
+        <a name="M000294"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000294.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000294.html');return false;">
+          <span class="method-name">body_unset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Clears the body of the request.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000295" class="method-detail">
+        <a name="M000295"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000295.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000295.html');return false;">
+          <span class="method-name">connect!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes an HTTP <tt>CONNECT</tt> request using the path of uri.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000296" class="method-detail">
+        <a name="M000296"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000296.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000296.html');return false;">
+          <span class="method-name">cookie_add</span><span class="method-args">(name, value=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Appends to <a href="Request.html#M000298">cookies</a> using the specified
+<em>name</em> (required) and <em>value</em> (optional).
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000297" class="method-detail">
+        <a name="M000297"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000297.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000297.html');return false;">
+          <span class="method-name">cookie_remove</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Removes the last element of <a href="Request.html#M000298">cookies</a>
+having the specified <em>name</em>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000298" class="method-detail">
+        <a name="M000298"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000298.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000298.html');return false;">
+          <span class="method-name">cookies</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an array of the <a href="Request.html#M000298">cookies</a>
+belonging to the request.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000299" class="method-detail">
+        <a name="M000299"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000299.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000299.html');return false;">
+          <span class="method-name">cookies_remove_all</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Removes all <a href="Request.html#M000298">cookies</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000300" class="method-detail">
+        <a name="M000300"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000300.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000300.html');return false;">
+          <span class="method-name">cookies_use</span><span class="method-args">(response)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets <a href="Request.html#M000298">cookies</a> according to the
+_Set-Cookie_ header of the specified <em>response</em>, or raises either <a
+href="NoResponseError.html">HTTY::NoResponseError</a> or <a
+href="NoSetCookieHeaderError.html">HTTY::NoSetCookieHeaderError</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000301" class="method-detail">
+        <a name="M000301"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000301.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000301.html');return false;">
+          <span class="method-name">delete!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes an HTTP <tt>DELETE</tt> request using the path of uri.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000291" class="method-detail">
+        <a name="M000291"></a>
+
+        <div class="method-heading">
+          <span class="method-name">eql?</span><span class="method-args">(other_request)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for #==
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000302" class="method-detail">
+        <a name="M000302"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000302.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000302.html');return false;">
+          <span class="method-name">follow</span><span class="method-args">(response)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri according to the
+<em>Location</em> header of the specified <em>response</em>, or raises
+either <a href="NoResponseError.html">HTTY::NoResponseError</a> or <a
+href="NoLocationHeaderError.html">HTTY::NoLocationHeaderError</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000303" class="method-detail">
+        <a name="M000303"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000303.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000303.html');return false;">
+          <span class="method-name">fragment_set</span><span class="method-args">(fragment)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri with the specified
+<em>fragment</em>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000304" class="method-detail">
+        <a name="M000304"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000304.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000304.html');return false;">
+          <span class="method-name">fragment_unset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri without a
+fragment.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000305" class="method-detail">
+        <a name="M000305"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000305.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000305.html');return false;">
+          <span class="method-name">get!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes an HTTP <tt>GET</tt> request using the path of uri.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000306" class="method-detail">
+        <a name="M000306"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000306.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000306.html');return false;">
+          <span class="method-name">head!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes an HTTP <tt>HEAD</tt> request using the path of uri.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000307" class="method-detail">
+        <a name="M000307"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000307.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000307.html');return false;">
+          <span class="method-name">header_set</span><span class="method-args">(name, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Appends to <a href="Request.html#M000309">headers</a> or changes the
+element of <a href="Request.html#M000309">headers</a> using the specified
+<em>name</em> and <em>value</em>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000308" class="method-detail">
+        <a name="M000308"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000308.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000308.html');return false;">
+          <span class="method-name">header_unset</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Removes the element of <a href="Request.html#M000309">headers</a> having
+the specified <em>name</em>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000309" class="method-detail">
+        <a name="M000309"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000309.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000309.html');return false;">
+          <span class="method-name">headers</span><span class="method-args">(include_content_length= METHODS_SENDING_BODY.include?(request_method))</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an array of the <a href="Request.html#M000309">headers</a>
+belonging to the payload. If <em>include_content_length</em> is
+<tt>false</tt>, then a &#8216;Content Length&#8217; header will be omitted.
+If <em>include_content_length</em> is not specified, then it will be
+<tt>true</tt> if request_method is an HTTP method for which body content is
+expected.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000310" class="method-detail">
+        <a name="M000310"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000310.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000310.html');return false;">
+          <span class="method-name">headers_unset_all</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Removes all <a href="Request.html#M000309">headers</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000311" class="method-detail">
+        <a name="M000311"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000311.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000311.html');return false;">
+          <span class="method-name">host_set</span><span class="method-args">(host)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri with the specified
+<em>host</em>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000312" class="method-detail">
+        <a name="M000312"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000312.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000312.html');return false;">
+          <span class="method-name">options!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes an HTTP <tt>OPTIONS</tt> request using the path of uri.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000313" class="method-detail">
+        <a name="M000313"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000313.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000313.html');return false;">
+          <span class="method-name">patch!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes an HTTP <tt>PATCH</tt> request using the path of uri.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000314" class="method-detail">
+        <a name="M000314"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000314.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000314.html');return false;">
+          <span class="method-name">path_set</span><span class="method-args">(path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri with the specified
+<em>path</em> which may be absolute or relative.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000315" class="method-detail">
+        <a name="M000315"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000315.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000315.html');return false;">
+          <span class="method-name">port_set</span><span class="method-args">(port)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri with the specified
+<em>port</em>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000316" class="method-detail">
+        <a name="M000316"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000316.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000316.html');return false;">
+          <span class="method-name">post!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes an HTTP <tt>POST</tt> request using the path of uri.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000317" class="method-detail">
+        <a name="M000317"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000317.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000317.html');return false;">
+          <span class="method-name">put!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes an HTTP <tt>PUT</tt> request using the path of uri.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000318" class="method-detail">
+        <a name="M000318"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000318.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000318.html');return false;">
+          <span class="method-name">query_set</span><span class="method-args">(name, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri, with the
+specified <em>value</em> for the query-string parameter specified by
+<em>name</em>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000319" class="method-detail">
+        <a name="M000319"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000319.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000319.html');return false;">
+          <span class="method-name">query_unset</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri, without the
+query-string parameter specified by <em>name</em>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000320" class="method-detail">
+        <a name="M000320"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000320.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000320.html');return false;">
+          <span class="method-name">query_unset_all</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri without a query
+string.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000321" class="method-detail">
+        <a name="M000321"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000321.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000321.html');return false;">
+          <span class="method-name">scheme_set</span><span class="method-args">(scheme)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri with the specified
+<em>scheme</em>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000322" class="method-detail">
+        <a name="M000322"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000322.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000322.html');return false;">
+          <span class="method-name">trace!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes an HTTP <tt>TRACE</tt> request using the path of uri.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000323" class="method-detail">
+        <a name="M000323"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000323.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000323.html');return false;">
+          <span class="method-name">userinfo_set</span><span class="method-args">(userinfo)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri with the specified
+<em>userinfo</em>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000324" class="method-detail">
+        <a name="M000324"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000324.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000324.html');return false;">
+          <span class="method-name">userinfo_unset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Establishes a <a href="Request.html#M000289">new</a> uri without userinfo.
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000325" class="method-detail">
+        <a name="M000325"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000325.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000325.html');return false;">
+          <span class="method-name">dup_without_response</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000326" class="method-detail">
+        <a name="M000326"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000326.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000326.html');return false;">
+          <span class="method-name">establish_content_length</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000327" class="method-detail">
+        <a name="M000327"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000327.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000327.html');return false;">
+          <span class="method-name">path_query_and_fragment</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000328" class="method-detail">
+        <a name="M000328"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000328.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000328.html');return false;">
+          <span class="method-name">rebuild_uri</span><span class="method-args">(changed_components)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

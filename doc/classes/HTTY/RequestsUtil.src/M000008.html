@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>http_response_to_status (HTTY::RequestsUtil)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/htty/requests_util.rb, line 67</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">http_response_to_status</span>(<span class="ruby-identifier">http_response</span>)
+    [<span class="ruby-identifier">http_response</span>.<span class="ruby-identifier">code</span>,
+     <span class="ruby-identifier">http_response</span>.<span class="ruby-identifier">code_type</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/^Net::HTTP/</span>,       <span class="ruby-value str">''</span>).
+                                  <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/(\S)([A-Z][a-z])/</span>, <span class="ruby-value str">'\1 \2'</span>)]
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

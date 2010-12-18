@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: HTTY::CLI::Display</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">HTTY::CLI::Display</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/app/htty/cli/display_rb.html">
+                app/htty/cli/display.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Encapsulates the display logic of <em>htty</em>&#8216;s command-line
+interface.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000016">format</a>&nbsp;&nbsp;
+      <a href="#M000018">indent</a>&nbsp;&nbsp;
+      <a href="#M000019">logotype</a>&nbsp;&nbsp;
+      <a href="#M000021">normal</a>&nbsp;&nbsp;
+      <a href="#M000020">notice</a>&nbsp;&nbsp;
+      <a href="#M000017">rescuing_from</a>&nbsp;&nbsp;
+      <a href="#M000022">say</a>&nbsp;&nbsp;
+      <a href="#M000023">say_goodbye</a>&nbsp;&nbsp;
+      <a href="#M000024">say_header</a>&nbsp;&nbsp;
+      <a href="#M000025">say_hello</a>&nbsp;&nbsp;
+      <a href="#M000026">show_headers</a>&nbsp;&nbsp;
+      <a href="#M000027">show_request</a>&nbsp;&nbsp;
+      <a href="#M000028">show_response</a>&nbsp;&nbsp;
+      <a href="#M000029">strong</a>&nbsp;&nbsp;
+      <a href="#M000030">word_wrap</a>&nbsp;&nbsp;
+      <a href="#M000031">word_wrap_indented</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">FORMATS</td>
+          <td>=</td>
+          <td class="context-item-value">{:bold                    =&gt; '1',              :underlined              =&gt; '4',              :blinking                =&gt; '5',              :inverse                 =&gt; '7',              :foreground_black        =&gt; '30',              :foreground_dark_red     =&gt; '31',              :foreground_dark_green   =&gt; '32',              :foreground_dark_yellow  =&gt; '33',              :foreground_dark_blue    =&gt; '34',              :foreground_dark_magenta =&gt; '35',              :foreground_dark_cyan    =&gt; '36',              :foreground_light_gray   =&gt; '37',              :foreground_dark_default =&gt; '39',              :foreground_dark_gray    =&gt; '1;30',              :foreground_red          =&gt; '1;31',              :foreground_green        =&gt; '1;32',              :foreground_yellow       =&gt; '1;33',              :foreground_blue         =&gt; '1;34',              :foreground_magenta      =&gt; '1;35',              :foreground_cyan         =&gt; '1;36',              :foreground_white        =&gt; '1;37',              :foreground_default      =&gt; '1;39',              :background_black        =&gt; '40',              :background_dark_red     =&gt; '41',              :background_dark_green   =&gt; '42',              :background_dark_yellow  =&gt; '43',              :background_dark_blue    =&gt; '44',              :background_dark_magenta =&gt; '45',              :background_dark_cyan    =&gt; '46',              :background_light_gray   =&gt; '47',              :background_default      =&gt; '49'}</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000016.html');return false;">
+          <span class="method-name">format</span><span class="method-args">(string, *attributes)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000018.html');return false;">
+          <span class="method-name">indent</span><span class="method-args">(string, column=2)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000019.html');return false;">
+          <span class="method-name">logotype</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000021.html');return false;">
+          <span class="method-name">normal</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000020.html');return false;">
+          <span class="method-name">notice</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000017.html');return false;">
+          <span class="method-name">rescuing_from</span><span class="method-args">(*exception_classes) {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000022.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000022.html');return false;">
+          <span class="method-name">say</span><span class="method-args">(message, style=:normal)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000023.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000023.html');return false;">
+          <span class="method-name">say_goodbye</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000024.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000024.html');return false;">
+          <span class="method-name">say_header</span><span class="method-args">(message, style=:normal)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000025.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000025.html');return false;">
+          <span class="method-name">say_hello</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000026.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000026.html');return false;">
+          <span class="method-name">show_headers</span><span class="method-args">(headers, show_asterisk_next_to=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000027.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000027.html');return false;">
+          <span class="method-name">show_request</span><span class="method-args">(request)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000028.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000028.html');return false;">
+          <span class="method-name">show_response</span><span class="method-args">(response)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000029" class="method-detail">
+        <a name="M000029"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000029.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000029.html');return false;">
+          <span class="method-name">strong</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000030.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000030.html');return false;">
+          <span class="method-name">word_wrap</span><span class="method-args">(text, column=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
+
+        <div class="method-heading">
+          <a href="Display.src/M000031.html" target="Code" class="method-signature"
+            onclick="popupCode('Display.src/M000031.html');return false;">
+          <span class="method-name">word_wrap_indented</span><span class="method-args">(text, columns=2..80)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adapted from <a
+href="http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#M002281">api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#M002281</a>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

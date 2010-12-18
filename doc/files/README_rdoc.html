@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sat Dec 18 15:57:23 -0600 2010</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <pre>
+                                                  __  .__
+                  s         s                   _/  |_|  |__   ____
+   .uef^&quot;        :8        :8      ..           \   __\  |  \_/ __ \
+ :d88E          .88       .88     @L             |  | |   Y  \  ___/
+ `888E         :888ooo   :888ooo 9888i   .dL     |__| |___|  /\___  &gt;
+  888E .z8k -*8888888 -*8888888 `Y888k:*888.     __________\/_____\/____________________
+  888E~?888L  8888      8888      888E  888I    /   |   \__    ___/\__    ___/\______   \
+  888E  888E  8888      8888      888E  888I   /    ~    \|    |     |    |    |     ___/
+  888E  888E  8888      8888      888E  888I   \    Y    /|    |     |    |    |    |
+  888E  888E .8888Lu=  .8888Lu=   888E  888I    \___|_  / |____|     |____|    |____|
+  888E  888E ^%888*    ^%888*    x888N&gt;&lt;888'    ______\/___________________.___.
+ m888N= 888&gt;   'Y&quot;       'Y&quot;      &quot;88&quot;  888     \__    ___/\__    ___/\__  |   |
+  `Y&quot;   888                             88F       |    |     |    |    /   |   |
+       J88&quot;                            98&quot;        |    |     |    |    \____   |
+       @%                            ./&quot;          |____|     |____|    / ______|
+     :&quot;                             ~`                                 \/
+</pre>
+<p>
+<a href="http://htty.github.com">htty</a> is a console application for
+interacting with HTTP servers. It&#8216;s something of a cross between
+<em>curl</em> and the Lynx browser.
+</p>
+<h1>Installation</h1>
+<p>
+It couldn&#8216;t be much easier.
+</p>
+<pre>
+ $ gem install htty
+</pre>
+<p>
+You&#8216;ll need Ruby and RubyGems. It&#8216;s known to work well under OS
+X against Ruby v1.8.7 and v1.9.2 under OS X.
+</p>
+<h1>Features</h1>
+<ul>
+<li>Intuitive commands and command aliases
+
+</li>
+<li>Support for familiar HTTP methods <em>GET</em>, <em>POST</em>,
+<em>PUT</em>, and <em>DELETE</em>, as well as <em>HEAD</em>,
+<em>OPTIONS</em> and <em>TRACE</em>
+
+</li>
+<li>Automatic URL-encoding of query-string parameters and URL fragments
+
+</li>
+<li>Transcripts, both verbose and summary
+
+</li>
+<li>Dead-simple cookie handling and redirect following
+
+</li>
+<li>Built-in help
+
+</li>
+</ul>
+<p>
+The things you can do with <em>htty</em> are:
+</p>
+<ul>
+<li><b>Build a request</b> &#8212; you can tweak the address, headers, cookies,
+and body at will
+
+</li>
+<li><b>Send the request to the server</b> &#8212; after the request is sent, it
+remains unchanged in your session history
+
+</li>
+<li><b>Inspect the server&#8216;s response</b> &#8212; you can look at the
+status, headers, cookies, and body in various ways
+
+</li>
+<li><b>Review history</b> &#8212; a normal and a verbose transcript of your
+session are available at all times (destroyed when you quit <em>htty</em>)
+
+</li>
+<li><b>Reuse previous requests</b> &#8212; you can refer to prior requests and
+copy them
+
+</li>
+</ul>
+<h1>Examples</h1>
+<p>
+Here are a few annotated <em>htty</em> session transcripts to get you
+started.
+</p>
+<h2>Querying a web service</h2>
+<p>
+This simple example shows how to explore read-only web services with
+<em>htty</em>.
+</p>
+<p>
+<img src="../../doc_bin/esvapi1.png" />
+</p>
+<p>
+You can point <em>htty</em> at a complete or partial web URL. If you
+don&#8216;t supply a URL, \<a href="http://0.0.0.0">0.0.0.0</a>/ (port 80)
+will be used. You can vary the protocol scheme, userinfo, host, port, path,
+query string, and fragment as you wish.
+</p>
+<p>
+The <em>htty</em> shell prompt shows the address of the current request.
+</p>
+<p>
+The <tt>get</tt> command is one of seven HTTP request methods supported. A
+concise summary of the response is shown when you issue a request.
+</p>
+<p>
+You can follow redirects using the <tt>follow</tt> command.
+</p>
+<p>
+<img src="../../doc_bin/esvapi2.png" />
+</p>
+<p>
+You can tweak segments of the address at will. Here we are navigating the
+site&#8216;s path hierarchy, which you can do with relative as well as
+absolute pathspecs.
+</p>
+<p>
+<img src="../../doc_bin/esvapi3.png" />
+</p>
+<p>
+Here we add query-string parameters. Notice that characters that require
+URL encoding are automatically URL-encoded (unless they are part of a
+URL-encoded expression).
+</p>
+<p>
+The +headers-response+ and +body-response+ commands reveal the details of a
+response.
+</p>
+<p>
+<img src="../../doc_bin/esvapi4.png" />
+</p>
+<p>
+There was some cruft in the web service&#8216;s response (a horizontal
+line, a passage reference, verse numbers, a copyright stamp, and line
+breaks). We eliminate it by using API options provided by the web service
+we&#8216;re talking to.
+</p>
+<p>
+We do a Julia Child maneuver and use the <tt>address</tt> command to change
+the entire URL, rather than add individual query-string parameters one by
+one.
+</p>
+<p>
+Exit your session at any time by typing <tt>quit</tt>.
+</p>
+<h2>Working with cookies</h2>
+<p>
+The next example demonstrates <em>htty</em>&#8216;s cookies features, as
+well as how to review and revisit past requests.
+</p>
+<p>
+<img src="../../doc_bin/google1.png" />
+</p>
+<p>
+Notice that when cookies are offered in a response, a bold asterisk (it
+looks like a cookie) appears in the response summary. The same cookie
+symbol appears next to the _Set-Cookie_ header when you display response
+headers.
+</p>
+<p>
+<img src="../../doc_bin/google2.png" />
+</p>
+<p>
+The +cookies-use+ command copies cookies out of the response into the next
+request. The cookie symbol appears next to the <em>Cookie</em> header when
+you display request headers.
+</p>
+<p>
+<img src="../../doc_bin/google3.png" />
+</p>
+<p>
+An abbreviated history is available through the <tt>history</tt> command.
+Information about requests in the history includes request method, URL,
+number of headers (and a cookie symbol, if cookies were sent), and the size
+of the body. Information about responses in the history includes response
+code, number of headers (and a cookie symbol, if cookies were received),
+and the size of the body.
+</p>
+<p>
+Note that history contains only numbered HTTP request and response pairs,
+not a record of all the commands you enter.
+</p>
+<p>
+The <tt>reuse</tt> command makes a copy of the headers and body of an
+earlier request for you to build on.
+</p>
+<h2>Understanding complex HTTP conversations at a glance using history</h2>
+<p>
+Assume that we have the following Sinatra application listening on
+Sinatra&#8216;s default port, 4567.
+</p>
+<pre>
+ require 'sinatra'
+
+ get '/all-good' do
+   [200, [['Set-Cookie', 'foo=bar; baz']], 'Hello World!']
+ end
+
+ get '/huh' do
+   [404, 'What?']
+ end
+
+ get '/hurl' do
+   [500, 'Barf!']
+ end
+
+ post '/give-it-to-me' do
+   redirect '/all-good'
+ end
+</pre>
+<p>
+This application expects <em>GET</em> and <em>POST</em> requests and
+responds in various contrived ways.
+</p>
+<p>
+<img src="../../doc_bin/sinatra1.png" />
+</p>
+<p>
+Here you can see a request body being specified. Type +body-set+ to enter
+body data, and terminate it by typing Return three times consecutively.
+</p>
+<p>
+Also note how different response codes are rendered:
+</p>
+<ul>
+<li>Response codes between 200 and 299 appear black on green to indicate
+success
+
+</li>
+<li>Response codes between 300 and 399 appear white on blue to indicate
+redirection
+
+</li>
+<li>Response codes between 400 and 499 appear white on red to indicate failure
+
+</li>
+<li>Response codes between 500 and 599 appear flashing black on yellow to
+indicate a server error
+
+</li>
+</ul>
+<p>
+<img src="../../doc_bin/sinatra2.png" />
+</p>
+<p>
+As with the abbreviated history demonstrated earlier, verbose history shows
+a numbered list of requests and the responses they elicited. All
+information exchanged between client and server is shown.
+</p>
+<h2>Getting help</h2>
+<p>
+You can learn how to use <em>htty</em> commands from within <em>htty</em>.
+</p>
+<p>
+<img src="../../doc_bin/help.png" />
+</p>
+<p>
+The <tt>help</tt> command takes an optional argument of the abbreviated or
+full name of a command.
+</p>
+<h1>Coming soon</h1>
+<p>
+Here are some features that are coming down the pike.
+</p>
+<h2>HTTP Secure URLs</h2>
+<p>
+The HTTPS code is broken right now. Pardon the dust.
+</p>
+<h2>Commands for streamlining web form submission</h2>
+<p>
+These features will make <em>htty</em> better at screen-scraping.
+</p>
+<p>
+Using any of the forthcoming <tt>form</tt> commands will clear any non-form
+content in the body of the request. Adding at least one URL-encoded form
+parameter to the request will set the _Content-Type_ header to
+_application/x-www-form-urlencoded_. Removing all URL-encoded form
+parameters will remove this header.
+</p>
+<ul>
+<li><tt>form</tt> &#8212; display all form parameters offered in the response
+
+</li>
+<li>+form-fill+ &#8212; prompt in turn for a value for each of the form inputs
+in the response
+
+</li>
+<li><tt>form-add <em>name</em> <em>value</em></tt> &#8212; add a URL-encoded
+form parameter for the request, using the specified name and value
+
+</li>
+<li><tt>form-remove <em>name</em></tt> &#8212; remove a URL-encoded form
+parameter from the request, using the specified name
+
+</li>
+<li>+form-remove-all+ &#8212; remove all URL-encoded form parameters from the
+request
+
+</li>
+</ul>
+<p>
+You will also be able to pop open a browser window containing request and
+response bodies.
+</p>
+<h2>Shiny <em>curses</em> goodness</h2>
+<p>
+We&#8216;ll have command history using the arrow keys, command
+autocompletion, and Tab key navigation of forms.
+</p>
+<h2>Custom command aliases and shell emulation of _http-console_</h2>
+<p>
+You should be able to make your own command aliases.
+</p>
+<p>
+_http-console_ has a nice command-line. We should have an _http-console_
+skin for <em>htty</em>.
+</p>
+<h1>Contributing</h1>
+<p>
+Your patches are welcome, and you will receive attribution here for good
+stuff.
+</p>
+<p>
+Fork the official <em>htty</em> repository located at <a
+href="http://github.com/htty/htty">github.com/htty/htty</a> and send a pull
+request to <a href="http://github.com/htty">htty</a>.
+</p>
+<h1>News and information</h1>
+<p>
+Stay in touch with the <em>htty</em> project by following the Twitter
+account: <a href="http://twitter.com/get_htty">get_htty</a>.
+</p>
+<p>
+You can also get help in the \htty channel on <a
+href="http://webchat.freenode.net/?channels=htty">Freenode</a>.
+</p>
+<h1>Credits</h1>
+<p>
+The author, <a href="mailto:htty@nilsjonsson.com">Nils&nbsp;Jonsson</a>,
+owes a debt of inspiration to the <a
+href="http://github.com/cloudhead/http-console">http-console</a> project.
+</p>
+<h1>License</h1>
+<p>
+Released under the <a
+href=".././MIT-LICENSE_rdoc.html">MIT&nbsp;License</a>.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

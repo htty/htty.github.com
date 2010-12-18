@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>follow (HTTY::Request)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/htty/request.rb, line 262</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">follow</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">HTTY</span><span class="ruby-operator">::</span><span class="ruby-constant">NoResponseError</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">response</span>
+
+    <span class="ruby-identifier">location_header</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">headers</span>.<span class="ruby-identifier">detect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'Location'</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">location_header</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">location_header</span>.<span class="ruby-identifier">last</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">HTTY</span><span class="ruby-operator">::</span><span class="ruby-constant">NoLocationHeaderError</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">address</span> <span class="ruby-identifier">location_header</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run! (HTTY::CLI)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/htty/cli.rb, line 31</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run!</span>
+    <span class="ruby-identifier">say_hello</span>
+    <span class="ruby-identifier">catch</span> <span class="ruby-identifier">:quit</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">loop</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-keyword kw">unless</span> (<span class="ruby-identifier">command</span> = <span class="ruby-identifier">prompt_for_command</span>)
+            <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">notice</span>(<span class="ruby-value str">'Unrecognized command'</span>)
+            <span class="ruby-identifier">puts</span> <span class="ruby-identifier">notice</span>(<span class="ruby-value str">'Try typing '</span> <span class="ruby-operator">+</span>
+                        <span class="ruby-identifier">strong</span>(<span class="ruby-constant">HTTY</span><span class="ruby-operator">::</span><span class="ruby-constant">CLI</span><span class="ruby-operator">::</span><span class="ruby-constant">Commands</span><span class="ruby-operator">::</span><span class="ruby-constant">Help</span>.<span class="ruby-identifier">command_line</span>))
+            <span class="ruby-keyword kw">next</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-constant">ARGV</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">'--debug'</span>)
+            <span class="ruby-identifier">command</span>.<span class="ruby-identifier">perform</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">rescuing_from</span> <span class="ruby-constant">Exception</span> <span class="ruby-keyword kw">do</span>
+              <span class="ruby-identifier">command</span>.<span class="ruby-identifier">perform</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Interrupt</span>
+          <span class="ruby-identifier">puts</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-identifier">notice</span>(<span class="ruby-value str">'Type '</span> <span class="ruby-operator">+</span>
+                      <span class="ruby-identifier">strong</span>(<span class="ruby-constant">HTTY</span><span class="ruby-operator">::</span><span class="ruby-constant">CLI</span><span class="ruby-operator">::</span><span class="ruby-constant">Commands</span><span class="ruby-operator">::</span><span class="ruby-constant">Quit</span>.<span class="ruby-identifier">command_line</span>) <span class="ruby-operator">+</span>
+                      <span class="ruby-value str">' to quit'</span>)
+          <span class="ruby-keyword kw">next</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">say_goodbye</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

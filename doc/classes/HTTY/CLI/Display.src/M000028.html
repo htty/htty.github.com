@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>show_response (HTTY::CLI::Display)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/htty/cli/display.rb, line 120</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show_response</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-identifier">code</span>, <span class="ruby-identifier">description</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span>
+    <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value">100</span><span class="ruby-operator">...</span><span class="ruby-value">200</span>, <span class="ruby-value">300</span><span class="ruby-operator">...</span><span class="ruby-value">400</span>
+        <span class="ruby-identifier">print</span> <span class="ruby-identifier">format</span>(<span class="ruby-node">&quot; #{code} &quot;</span>, <span class="ruby-identifier">:background_dark_blue</span>, <span class="ruby-identifier">:foreground_white</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value">200</span><span class="ruby-operator">...</span><span class="ruby-value">300</span>
+        <span class="ruby-identifier">print</span> <span class="ruby-identifier">format</span>(<span class="ruby-node">&quot; #{code} &quot;</span>, <span class="ruby-identifier">:background_dark_green</span>, <span class="ruby-identifier">:foreground_black</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value">500</span><span class="ruby-operator">...</span><span class="ruby-value">600</span>
+        <span class="ruby-identifier">print</span> <span class="ruby-identifier">format</span>(<span class="ruby-node">&quot; #{code} &quot;</span>, <span class="ruby-identifier">:inverse</span>, <span class="ruby-identifier">:blinking</span>,
+                                  <span class="ruby-identifier">:background_black</span>, <span class="ruby-identifier">:foreground_yellow</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">print</span> <span class="ruby-identifier">format</span>(<span class="ruby-node">&quot; #{code} &quot;</span>, <span class="ruby-identifier">:background_dark_red</span>, <span class="ruby-identifier">:foreground_white</span>)
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-value str">' '</span>
+    <span class="ruby-identifier">cookies_asterisk</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-value">? </span><span class="ruby-value str">''</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">strong</span>(<span class="ruby-value str">'*'</span>)
+    <span class="ruby-identifier">body_length</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">body_size</span>   = <span class="ruby-identifier">body_length</span>.<span class="ruby-identifier">zero?</span> <span class="ruby-value">? </span><span class="ruby-value str">'empty'</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{body_length}-character&quot;</span>
+    <span class="ruby-identifier">puts</span>([<span class="ruby-identifier">description</span>,
+          <span class="ruby-identifier">pluralize</span>(<span class="ruby-value str">'header'</span>, <span class="ruby-identifier">response</span>.<span class="ruby-identifier">headers</span>.<span class="ruby-identifier">length</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">cookies_asterisk</span>,
+          <span class="ruby-node">&quot;#{body_size} body&quot;</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">' -- '</span>))
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
