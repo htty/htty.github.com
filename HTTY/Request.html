@@ -1,0 +1,3584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: HTTY::Request</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (R)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../HTTY.html" title="HTTY (module)">HTTY</a></span></span>
+     &raquo; 
+    <span class="title">Request</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: HTTY::Request
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Payload.html" title="HTTY::Payload (class)">Payload</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="Payload.html" title="HTTY::Payload (class)">Payload</a></span></li>
+          
+            <li class="next">HTTY::Request</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/htty/request.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Encapsulates an HTTP(S) request.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="AUTHORIZATION_HEADER_NAME-constant" class="">AUTHORIZATION_HEADER_NAME =
+          
+        </dt>
+        <dd><pre class="code"><span class='string val'>'Authorization'</span>
+</pre></dd>
+      
+        <dt id="COOKIES_HEADER_NAME-constant" class="">COOKIES_HEADER_NAME =
+          
+        </dt>
+        <dd><pre class="code"><span class='string val'>'Cookie'</span>
+</pre></dd>
+      
+        <dt id="METHODS_SENDING_BODY-constant" class="">METHODS_SENDING_BODY =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrack token'>[</span><span class='symbol val'>:post</span><span class='comma token'>,</span> <span class='symbol val'>:put</span><span class='rbrack token'>]</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#request_method-instance_method" title="#request_method (instance method)">- (Object) <strong>request_method</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the HTTP method of the request, if any.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#response-instance_method" title="#response (instance method)">- (Object) <strong>response</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the response received for the request, if any.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uri-instance_method" title="#uri (instance method)">- (Object) <strong>uri</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the URI of the request.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_authority-class_method" title="build_authority (class method)">+ (Object) <strong>build_authority</strong>(components) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns a URI authority (a combination of userinfo, host, and port)
+corresponding to the specified <em>components</em> hash.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_path_query_and_fragment-class_method" title="build_path_query_and_fragment (class method)">+ (Object) <strong>build_path_query_and_fragment</strong>(components) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns a combination of a URI path, query, and fragment, corresponding to
+the specified <em>components</em> hash.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_uri-class_method" title="build_uri (class method)">+ (Object) <strong>build_uri</strong>(components) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns a URI corresponding to the specified <em>components</em> hash, or
+raises URI::InvalidURIError.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse_uri-class_method" title="parse_uri (class method)">+ (Object) <strong>parse_uri</strong>(address) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns a URI corresponding to the specified <em>address</em>, or raises
+URI::InvalidURIError.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#set_up_cookies_and_authentication-class_method" title="set_up_cookies_and_authentication (class method)">+ (Object) <strong>set_up_cookies_and_authentication</strong>(request) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3D%3D-instance_method" title="#== (instance method)">- (Object) <strong>==</strong>(other_request) </a>
+    
+
+    
+      (also: #eql?)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns <tt>true</tt> if <em>other_request</em> is equivalent to the
+request.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#address-instance_method" title="#address (instance method)">- (Object) <strong>address</strong>(address) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri corresponding to the specified <em>address</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#body_set-instance_method" title="#body_set (instance method)">- (Object) <strong>body_set</strong>(body) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Sets the body of the request.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#body_unset-instance_method" title="#body_unset (instance method)">- (Object) <strong>body_unset</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Clears the body of the request.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#connect%21-instance_method" title="#connect! (instance method)">- (Object) <strong>connect!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP <tt>CONNECT</tt> request using the path of #uri.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cookie_add-instance_method" title="#cookie_add (instance method)">- (Object) <strong>cookie_add</strong>(name, value = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Appends to #cookies using the specified <em>name</em> (required) and
+<em>value</em> (optional).
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cookie_remove-instance_method" title="#cookie_remove (instance method)">- (Object) <strong>cookie_remove</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Removes the last element of #cookies having the specified <em>name</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cookies-instance_method" title="#cookies (instance method)">- (Object) <strong>cookies</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns an array of the cookies belonging to the request.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cookies_remove_all-instance_method" title="#cookies_remove_all (instance method)">- (Object) <strong>cookies_remove_all</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Removes all #cookies.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cookies_use-instance_method" title="#cookies_use (instance method)">- (Object) <strong>cookies_use</strong>(response) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Sets #cookies according to the _Set-Cookie_ header of the specified
+<em>response</em>, or raises either HTTY::NoResponseError or
+HTTY::NoSetCookieHeaderError.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete%21-instance_method" title="#delete! (instance method)">- (Object) <strong>delete!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP <tt>DELETE</tt> request using the path of #uri.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#dup_without_response-instance_method" title="#dup_without_response (instance method)">- (Object) <strong>dup_without_response</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#establish_basic_authentication-instance_method" title="#establish_basic_authentication (instance method)">- (Object) <strong>establish_basic_authentication</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#follow-instance_method" title="#follow (instance method)">- (Object) <strong>follow</strong>(response) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri according to the <em>Location</em> header of the
+specified <em>response</em>, or raises either HTTY::NoResponseError or
+HTTY::NoLocationHeaderError.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fragment_set-instance_method" title="#fragment_set (instance method)">- (Object) <strong>fragment_set</strong>(fragment) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri with the specified <em>fragment</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fragment_unset-instance_method" title="#fragment_unset (instance method)">- (Object) <strong>fragment_unset</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri without a fragment.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get%21-instance_method" title="#get! (instance method)">- (Object) <strong>get!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP <tt>GET</tt> request using the path of #uri.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#head%21-instance_method" title="#head! (instance method)">- (Object) <strong>head!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP <tt>HEAD</tt> request using the path of #uri.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#header_set-instance_method" title="#header_set (instance method)">- (Object) <strong>header_set</strong>(name, value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Appends to #headers or changes the element of #headers using the specified
+<em>name</em> and <em>value</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#header_unset-instance_method" title="#header_unset (instance method)">- (Object) <strong>header_unset</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Removes the element of #headers having the specified <em>name</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#headers-instance_method" title="#headers (instance method)">- (Object) <strong>headers</strong>(include_content_length = METHODS_SENDING_BODY.include?(request_method)) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns an array of the headers belonging to the payload.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#headers_unset_all-instance_method" title="#headers_unset_all (instance method)">- (Object) <strong>headers_unset_all</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Removes all #headers.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#host_set-instance_method" title="#host_set (instance method)">- (Object) <strong>host_set</strong>(host) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri with the specified <em>host</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Request) <strong>initialize</strong>(address) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Initializes a new HTTY::Request with a #uri corresponding to the specified
+<em>address</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options%21-instance_method" title="#options! (instance method)">- (Object) <strong>options!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP <tt>OPTIONS</tt> request using the path of #uri.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#patch%21-instance_method" title="#patch! (instance method)">- (Object) <strong>patch!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP <tt>PATCH</tt> request using the path of #uri.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#path_query_and_fragment-instance_method" title="#path_query_and_fragment (instance method)">- (Object) <strong>path_query_and_fragment</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path_set-instance_method" title="#path_set (instance method)">- (Object) <strong>path_set</strong>(path) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri with the specified <em>path</em> which may be
+absolute or relative.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#port_set-instance_method" title="#port_set (instance method)">- (Object) <strong>port_set</strong>(port) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri with the specified <em>port</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#post%21-instance_method" title="#post! (instance method)">- (Object) <strong>post!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP <tt>POST</tt> request using the path of #uri.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#put%21-instance_method" title="#put! (instance method)">- (Object) <strong>put!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP <tt>PUT</tt> request using the path of #uri.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query_set-instance_method" title="#query_set (instance method)">- (Object) <strong>query_set</strong>(name, value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri, with the specified <em>value</em> for the
+query-string parameter specified by <em>name</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query_unset-instance_method" title="#query_unset (instance method)">- (Object) <strong>query_unset</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri, without the query-string parameter specified by
+<em>name</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query_unset_all-instance_method" title="#query_unset_all (instance method)">- (Object) <strong>query_unset_all</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri without a query string.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#rebuild_uri-instance_method" title="#rebuild_uri (instance method)">- (Object) <strong>rebuild_uri</strong>(changed_components) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#scheme_set-instance_method" title="#scheme_set (instance method)">- (Object) <strong>scheme_set</strong>(scheme) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri with the specified <em>scheme</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trace%21-instance_method" title="#trace! (instance method)">- (Object) <strong>trace!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP <tt>TRACE</tt> request using the path of #uri.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#userinfo_set-instance_method" title="#userinfo_set (instance method)">- (Object) <strong>userinfo_set</strong>(username, password = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri with the specified <em>userinfo</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#userinfo_unset-instance_method" title="#userinfo_unset (instance method)">- (Object) <strong>userinfo_unset</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Establishes a new #uri without userinfo.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="HTTY::Request (class)">Request</a></span></tt>) <strong>initialize</strong>(address) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Initializes a new HTTY::Request with a #uri corresponding to the specified
+<em>address</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 133</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='address identifier id'>address</span><span class='rparen token'>)</span>
+  <span class='super super kw'>super</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:headers</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='lbrack token'>[</span><span class='string val'>'User-Agent'</span><span class='comma token'>,</span> <span class='dstring node'>&quot;htty/#{HTTY::VERSION}&quot;</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='@uri ivar id'>@uri</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='parse_uri identifier id'>parse_uri</span><span class='lparen token'>(</span><span class='address identifier id'>address</span><span class='rparen token'>)</span>
+  <span class='establish_basic_authentication identifier id'>establish_basic_authentication</span>
+  <span class='establish_content_length identifier id'>establish_content_length</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="request_method-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="request_method-instance_method">
+  
+    - (<tt>Object</tt>) <strong>request_method</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the HTTP method of the request, if any.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 123</span>
+
+<span class='def def kw'>def</span> <span class='request_method identifier id'>request_method</span>
+  <span class='@request_method ivar id'>@request_method</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="response=-instance_method"></span>
+      <span id="response-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="response-instance_method">
+  
+    - (<tt>Object</tt>) <strong>response</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the response received for the request, if any.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126
+127
+128</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 126</span>
+
+<span class='def def kw'>def</span> <span class='response identifier id'>response</span>
+  <span class='@response ivar id'>@response</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="uri=-instance_method"></span>
+      <span id="uri-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="uri-instance_method">
+  
+    - (<tt>Object</tt>) <strong>uri</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the URI of the request.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+129
+130
+131</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 129</span>
+
+<span class='def def kw'>def</span> <span class='uri identifier id'>uri</span>
+  <span class='@uri ivar id'>@uri</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="build_authority-class_method">
+  
+    + (<tt>Object</tt>) <strong>build_authority</strong>(components) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns a URI authority (a combination of userinfo, host, and port)
+corresponding to the specified <em>components</em> hash. Valid
+<em>components</em> keys include:
+</p>
+<ul>
+<li><tt>:userinfo</tt>
+
+</li>
+<li><tt>:host</tt>
+
+</li>
+<li><tt>:port</tt>
+
+</li>
+</ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 30</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='build_authority identifier id'>build_authority</span><span class='lparen token'>(</span><span class='components identifier id'>components</span><span class='rparen token'>)</span>
+  <span class='userinfo_and_host identifier id'>userinfo_and_host</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='components identifier id'>components</span><span class='lbrack token'>[</span><span class='symbol val'>:userinfo</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
+                       <span class='components identifier id'>components</span><span class='lbrack token'>[</span><span class='symbol val'>:host</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='compact identifier id'>compact</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>'@'</span><span class='rparen token'>)</span>
+  <span class='all identifier id'>all</span>               <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='userinfo_and_host identifier id'>userinfo_and_host</span><span class='comma token'>,</span> <span class='components identifier id'>components</span><span class='lbrack token'>[</span><span class='symbol val'>:port</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='compact identifier id'>compact</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>':'</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='nil nil kw'>nil</span> <span class='if if_mod kw'>if</span> <span class='lparen token'>(</span><span class='all identifier id'>all</span> <span class='eq op'>==</span> <span class='string val'>''</span><span class='rparen token'>)</span>
+  <span class='all identifier id'>all</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="build_path_query_and_fragment-class_method">
+  
+    + (<tt>Object</tt>) <strong>build_path_query_and_fragment</strong>(components) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns a combination of a URI path, query, and fragment, corresponding to
+the specified <em>components</em> hash. Valid <em>components</em> keys
+include:
+</p>
+<ul>
+<li><tt>:path</tt>
+
+</li>
+<li><tt>:query</tt>
+
+</li>
+<li><tt>:fragment</tt>
+
+</li>
+</ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 44</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='build_path_query_and_fragment identifier id'>build_path_query_and_fragment</span><span class='lparen token'>(</span><span class='components identifier id'>components</span><span class='rparen token'>)</span>
+  <span class='path identifier id'>path</span>     <span class='assign token'>=</span> <span class='components identifier id'>components</span><span class='lbrack token'>[</span><span class='symbol val'>:path</span><span class='rbrack token'>]</span>
+  <span class='query identifier id'>query</span>    <span class='assign token'>=</span> <span class='components identifier id'>components</span><span class='lbrack token'>[</span><span class='symbol val'>:query</span><span class='rbrack token'>]</span>    <span class='question op'>?</span> <span class='dstring node'>&quot;?#{components[:query]}&quot;</span>    <span class='colon op'>:</span> <span class='nil nil kw'>nil</span>
+  <span class='fragment identifier id'>fragment</span> <span class='assign token'>=</span> <span class='components identifier id'>components</span><span class='lbrack token'>[</span><span class='symbol val'>:fragment</span><span class='rbrack token'>]</span> <span class='question op'>?</span> <span class='dstring node'>&quot;##{components[:fragment]}&quot;</span> <span class='colon op'>:</span> <span class='nil nil kw'>nil</span>
+  <span class='all identifier id'>all</span>      <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='path identifier id'>path</span><span class='comma token'>,</span> <span class='query identifier id'>query</span><span class='comma token'>,</span> <span class='fragment identifier id'>fragment</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='compact identifier id'>compact</span><span class='dot token'>.</span><span class='join identifier id'>join</span>
+  <span class='return return kw'>return</span> <span class='nil nil kw'>nil</span> <span class='if if_mod kw'>if</span> <span class='lparen token'>(</span><span class='all identifier id'>all</span> <span class='eq op'>==</span> <span class='string val'>''</span><span class='rparen token'>)</span>
+  <span class='all identifier id'>all</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="build_uri-class_method">
+  
+    + (<tt>Object</tt>) <strong>build_uri</strong>(components) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns a URI corresponding to the specified <em>components</em> hash, or
+raises URI::InvalidURIError. Valid <em>components</em> keys include:
+</p>
+<ul>
+<li><tt>:scheme</tt>
+
+</li>
+<li><tt>:userinfo</tt>
+
+</li>
+<li><tt>:host</tt>
+
+</li>
+<li><tt>:port</tt>
+
+</li>
+<li><tt>:path</tt>
+
+</li>
+<li><tt>:query</tt>
+
+</li>
+<li><tt>:fragment</tt>
+
+</li>
+</ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65
+66
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 63</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='build_uri identifier id'>build_uri</span><span class='lparen token'>(</span><span class='components identifier id'>components</span><span class='rparen token'>)</span>
+  <span class='scheme identifier id'>scheme</span>                  <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='components identifier id'>components</span><span class='lbrack token'>[</span><span class='symbol val'>:scheme</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='string val'>'http'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>'://'</span>
+  <span class='authority identifier id'>authority</span>               <span class='assign token'>=</span> <span class='build_authority identifier id'>build_authority</span><span class='lparen token'>(</span><span class='components identifier id'>components</span><span class='rparen token'>)</span>
+  <span class='path_query_and_fragment identifier id'>path_query_and_fragment</span> <span class='assign token'>=</span> <span class='build_path_query_and_fragment identifier id'>build_path_query_and_fragment</span><span class='lparen token'>(</span><span class='components identifier id'>components</span><span class='rparen token'>)</span>
+  <span class='path_query_and_fragment identifier id'>path_query_and_fragment</span> <span class='opasgn op'>||=</span> <span class='string val'>'/'</span> <span class='if if_mod kw'>if</span> <span class='authority identifier id'>authority</span>
+  <span class='URI constant id'>URI</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='lbrack token'>[</span><span class='scheme identifier id'>scheme</span><span class='comma token'>,</span> <span class='authority identifier id'>authority</span><span class='comma token'>,</span> <span class='path_query_and_fragment identifier id'>path_query_and_fragment</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="parse_uri-class_method">
+  
+    + (<tt>Object</tt>) <strong>parse_uri</strong>(address) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns a URI corresponding to the specified <em>address</em>, or raises
+URI::InvalidURIError.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 73</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='parse_uri identifier id'>parse_uri</span><span class='lparen token'>(</span><span class='address identifier id'>address</span><span class='rparen token'>)</span>
+  <span class='address identifier id'>address</span> <span class='assign token'>=</span> <span class='string val'>'0.0.0.0'</span> <span class='if if_mod kw'>if</span> <span class='address identifier id'>address</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='address identifier id'>address</span> <span class='eq op'>==</span> <span class='string val'>''</span><span class='rparen token'>)</span>
+
+  <span class='scheme_missing identifier id'>scheme_missing</span> <span class='assign token'>=</span> <span class='false false kw'>false</span>
+  <span class='if if kw'>if</span> <span class='lparen token'>(</span><span class='address identifier id'>address</span> <span class='nmatch op'>!~</span> <span class='regexp val'>/^[a-z]+:\/\//</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='lparen token'>(</span><span class='address identifier id'>address</span> <span class='nmatch op'>!~</span> <span class='regexp val'>/^mailto:/</span><span class='rparen token'>)</span>
+    <span class='scheme_missing identifier id'>scheme_missing</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
+    <span class='address identifier id'>address</span> <span class='assign token'>=</span> <span class='string val'>'http://'</span> <span class='plus op'>+</span> <span class='address identifier id'>address</span>
+  <span class='end end kw'>end</span>
+
+  <span class='scheme identifier id'>scheme</span><span class='comma token'>,</span>
+  <span class='userinfo identifier id'>userinfo</span><span class='comma token'>,</span>
+  <span class='host identifier id'>host</span><span class='comma token'>,</span>
+  <span class='port identifier id'>port</span><span class='comma token'>,</span>
+  <span class='registry identifier id'>registry</span><span class='comma token'>,</span> <span class='comment val'># Not used by HTTP</span>
+  <span class='path identifier id'>path</span><span class='comma token'>,</span>
+  <span class='opaque identifier id'>opaque</span><span class='comma token'>,</span>   <span class='comment val'># Not used by HTTP</span>
+  <span class='query identifier id'>query</span><span class='comma token'>,</span>
+  <span class='fragment identifier id'>fragment</span> <span class='assign token'>=</span> <span class='URI constant id'>URI</span><span class='dot token'>.</span><span class='split identifier id'>split</span><span class='lparen token'>(</span><span class='address identifier id'>address</span><span class='rparen token'>)</span>
+
+  <span class='scheme identifier id'>scheme</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span> <span class='if if_mod kw'>if</span> <span class='scheme_missing identifier id'>scheme_missing</span>
+  <span class='path identifier id'>path</span>   <span class='assign token'>=</span> <span class='nil nil kw'>nil</span> <span class='if if_mod kw'>if</span> <span class='lparen token'>(</span><span class='path identifier id'>path</span> <span class='eq op'>==</span> <span class='string val'>''</span><span class='rparen token'>)</span>
+
+  <span class='unless unless kw'>unless</span> <span class='scheme identifier id'>scheme</span>
+    <span class='scheme identifier id'>scheme</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='port identifier id'>port</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span> <span class='eq op'>==</span> <span class='URI constant id'>URI</span><span class='colon2 op'>::</span><span class='HTTPS constant id'>HTTPS</span><span class='colon2 op'>::</span><span class='DEFAULT_PORT constant id'>DEFAULT_PORT</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='string val'>'https'</span> <span class='colon op'>:</span> <span class='string val'>'http'</span>
+  <span class='end end kw'>end</span>
+
+  <span class='build_uri identifier id'>build_uri</span> <span class='symbol val'>:scheme</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='scheme identifier id'>scheme</span><span class='comma token'>,</span>
+            <span class='symbol val'>:userinfo</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='userinfo identifier id'>userinfo</span><span class='comma token'>,</span>
+            <span class='symbol val'>:host</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='host identifier id'>host</span><span class='comma token'>,</span>
+            <span class='symbol val'>:port</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='port identifier id'>port</span><span class='comma token'>,</span>
+            <span class='symbol val'>:path</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='path identifier id'>path</span><span class='comma token'>,</span>
+            <span class='symbol val'>:query</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='query identifier id'>query</span><span class='comma token'>,</span>
+            <span class='symbol val'>:fragment</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='fragment identifier id'>fragment</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set_up_cookies_and_authentication-class_method">
+  
+    + (<tt>Object</tt>) <strong>set_up_cookies_and_authentication</strong>(request)  <span class="extras">(protected)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 110</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='set_up_cookies_and_authentication identifier id'>set_up_cookies_and_authentication</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span>
+  <span class='previous_host identifier id'>previous_host</span> <span class='assign token'>=</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='host identifier id'>host</span>
+  <span class='yield yield kw'>yield</span>
+  <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='cookies_remove_all identifier id'>cookies_remove_all</span> <span class='unless unless_mod kw'>unless</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='host identifier id'>host</span> <span class='eq op'>==</span> <span class='previous_host identifier id'>previous_host</span>
+
+  <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='send identifier id'>send</span> <span class='symbol val'>:establish_basic_authentication</span>
+
+  <span class='request identifier id'>request</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="==-instance_method">
+  
+    - (<tt>Object</tt>) <strong>==</strong>(other_request) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='eql?-instance_method'>eql?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns <tt>true</tt> if <em>other_request</em> is equivalent to the
+request.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150
+151
+152</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 148</span>
+
+<span class='def def kw'>def</span> <span class='eq op'>==</span><span class='lparen token'>(</span><span class='other_request identifier id'>other_request</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='false false kw'>false</span> <span class='unless unless_mod kw'>unless</span> <span class='super super kw'>super</span><span class='lparen token'>(</span><span class='other_request identifier id'>other_request</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='false false kw'>false</span> <span class='unless unless_mod kw'>unless</span> <span class='other_request identifier id'>other_request</span><span class='dot token'>.</span><span class='kind_of? fid id'>kind_of?</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='rparen token'>)</span>
+  <span class='lparen token'>(</span><span class='other_request identifier id'>other_request</span><span class='dot token'>.</span><span class='response identifier id'>response</span> <span class='eq op'>==</span> <span class='response identifier id'>response</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='lparen token'>(</span><span class='other_request identifier id'>other_request</span><span class='dot token'>.</span><span class='uri identifier id'>uri</span> <span class='eq op'>==</span> <span class='uri identifier id'>uri</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="address-instance_method">
+  
+    - (<tt>Object</tt>) <strong>address</strong>(address) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri corresponding to the specified <em>address</em>. If
+the host of the <em>address</em> is different from the host of #uri, then
+#cookies are cleared.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 158</span>
+
+<span class='def def kw'>def</span> <span class='address identifier id'>address</span><span class='lparen token'>(</span><span class='address identifier id'>address</span><span class='rparen token'>)</span>
+  <span class='uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='parse_uri identifier id'>parse_uri</span><span class='lparen token'>(</span><span class='address identifier id'>address</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='response identifier id'>response</span>
+    <span class='dup identifier id'>dup</span> <span class='assign token'>=</span> <span class='dup_without_response identifier id'>dup_without_response</span>
+    <span class='return return kw'>return</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='symbol val'>:set_up_cookies_and_authentication</span><span class='comma token'>,</span> <span class='dup identifier id'>dup</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+      <span class='dup identifier id'>dup</span><span class='dot token'>.</span><span class='uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='uri identifier id'>uri</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='symbol val'>:set_up_cookies_and_authentication</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+    <span class='@uri ivar id'>@uri</span> <span class='assign token'>=</span> <span class='uri identifier id'>uri</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="body_set-instance_method">
+  
+    - (<tt>Object</tt>) <strong>body_set</strong>(body) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Sets the body of the request.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173
+174
+175
+176
+177
+178</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 173</span>
+
+<span class='def def kw'>def</span> <span class='body_set identifier id'>body_set</span><span class='lparen token'>(</span><span class='body identifier id'>body</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='dup_without_response identifier id'>dup_without_response</span><span class='dot token'>.</span><span class='body_set identifier id'>body_set</span><span class='lparen token'>(</span><span class='body identifier id'>body</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='response identifier id'>response</span>
+
+  <span class='@body ivar id'>@body</span> <span class='assign token'>=</span> <span class='body identifier id'>body</span> <span class='integer val'>? </span><span class='body identifier id'>body</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='colon op'>:</span> <span class='nil nil kw'>nil</span>
+  <span class='establish_content_length identifier id'>establish_content_length</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="body_unset-instance_method">
+  
+    - (<tt>Object</tt>) <strong>body_unset</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Clears the body of the request.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181
+182
+183</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 181</span>
+
+<span class='def def kw'>def</span> <span class='body_unset identifier id'>body_unset</span>
+  <span class='body_set identifier id'>body_set</span> <span class='nil nil kw'>nil</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="connect!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>connect!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP <tt>CONNECT</tt> request using the path of #uri.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 186</span>
+
+<span class='def def kw'>def</span> <span class='connect! fid id'>connect!</span>
+  <span class='request! fid id'>request!</span> <span class='symbol val'>:connect</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="cookie_add-instance_method">
+  
+    - (<tt>Object</tt>) <strong>cookie_add</strong>(name, value = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Appends to #cookies using the specified <em>name</em> (required) and
+<em>value</em> (optional).
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 192</span>
+
+<span class='def def kw'>def</span> <span class='cookie_add identifier id'>cookie_add</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='dup_without_response identifier id'>dup_without_response</span><span class='dot token'>.</span><span class='cookie_add identifier id'>cookie_add</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='response identifier id'>response</span>
+
+  <span class='cookies_string identifier id'>cookies_string</span> <span class='assign token'>=</span> <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CookiesUtil constant id'>CookiesUtil</span><span class='dot token'>.</span><span class='cookies_to_string identifier id'>cookies_to_string</span><span class='lparen token'>(</span><span class='cookies identifier id'>cookies</span> <span class='plus op'>+</span>
+                                                       <span class='lbrack token'>[</span><span class='lbrack token'>[</span><span class='name identifier id'>name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='cookies_string identifier id'>cookies_string</span>
+    <span class='@headers ivar id'>@headers</span><span class='lbrack token'>[</span><span class='COOKIES_HEADER_NAME constant id'>COOKIES_HEADER_NAME</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='cookies_string identifier id'>cookies_string</span>
+  <span class='else else kw'>else</span>
+    <span class='@headers ivar id'>@headers</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span> <span class='COOKIES_HEADER_NAME constant id'>COOKIES_HEADER_NAME</span>
+  <span class='end end kw'>end</span>
+  <span class='self self kw'>self</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="cookie_remove-instance_method">
+  
+    - (<tt>Object</tt>) <strong>cookie_remove</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Removes the last element of #cookies having the specified <em>name</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 206</span>
+
+<span class='def def kw'>def</span> <span class='cookie_remove identifier id'>cookie_remove</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='dup_without_response identifier id'>dup_without_response</span><span class='dot token'>.</span><span class='cookie_remove identifier id'>cookie_remove</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='response identifier id'>response</span>
+
+  <span class='comment val'># Remove just one matching cookie from the end.</span>
+  <span class='rejected identifier id'>rejected</span> <span class='assign token'>=</span> <span class='false false kw'>false</span>
+  <span class='new_cookies identifier id'>new_cookies</span> <span class='assign token'>=</span> <span class='cookies identifier id'>cookies</span><span class='dot token'>.</span><span class='reverse identifier id'>reverse</span><span class='dot token'>.</span><span class='reject identifier id'>reject</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='cookie_name identifier id'>cookie_name</span><span class='comma token'>,</span> <span class='cookie_value identifier id'>cookie_value</span><span class='bitor op'>|</span>
+    <span class='if if kw'>if</span> <span class='notop op'>!</span><span class='rejected identifier id'>rejected</span> <span class='andop op'>&amp;&amp;</span> <span class='lparen token'>(</span><span class='cookie_name identifier id'>cookie_name</span> <span class='eq op'>==</span> <span class='name identifier id'>name</span><span class='rparen token'>)</span>
+      <span class='rejected identifier id'>rejected</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
+    <span class='else else kw'>else</span>
+      <span class='false false kw'>false</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span><span class='dot token'>.</span><span class='reverse identifier id'>reverse</span>
+
+  <span class='cookies_string identifier id'>cookies_string</span> <span class='assign token'>=</span> <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CookiesUtil constant id'>CookiesUtil</span><span class='dot token'>.</span><span class='cookies_to_string identifier id'>cookies_to_string</span><span class='lparen token'>(</span><span class='new_cookies identifier id'>new_cookies</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='cookies_string identifier id'>cookies_string</span>
+    <span class='@headers ivar id'>@headers</span><span class='lbrack token'>[</span><span class='COOKIES_HEADER_NAME constant id'>COOKIES_HEADER_NAME</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='cookies_string identifier id'>cookies_string</span>
+  <span class='else else kw'>else</span>
+    <span class='@headers ivar id'>@headers</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span> <span class='COOKIES_HEADER_NAME constant id'>COOKIES_HEADER_NAME</span>
+  <span class='end end kw'>end</span>
+  <span class='self self kw'>self</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="cookies-instance_method">
+  
+    - (<tt>Object</tt>) <strong>cookies</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns an array of the cookies belonging to the request.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+229
+230
+231</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 229</span>
+
+<span class='def def kw'>def</span> <span class='cookies identifier id'>cookies</span>
+  <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CookiesUtil constant id'>CookiesUtil</span><span class='dot token'>.</span><span class='cookies_from_string identifier id'>cookies_from_string</span> <span class='@headers ivar id'>@headers</span><span class='lbrack token'>[</span><span class='COOKIES_HEADER_NAME constant id'>COOKIES_HEADER_NAME</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="cookies_remove_all-instance_method">
+  
+    - (<tt>Object</tt>) <strong>cookies_remove_all</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Removes all #cookies.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+234
+235
+236
+237
+238
+239</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 234</span>
+
+<span class='def def kw'>def</span> <span class='cookies_remove_all identifier id'>cookies_remove_all</span>
+  <span class='return return kw'>return</span> <span class='dup_without_response identifier id'>dup_without_response</span><span class='dot token'>.</span><span class='cookies_remove_all identifier id'>cookies_remove_all</span> <span class='if if_mod kw'>if</span> <span class='response identifier id'>response</span>
+
+  <span class='@headers ivar id'>@headers</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span> <span class='COOKIES_HEADER_NAME constant id'>COOKIES_HEADER_NAME</span>
+  <span class='self self kw'>self</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="cookies_use-instance_method">
+  
+    - (<tt>Object</tt>) <strong>cookies_use</strong>(response) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Sets #cookies according to the _Set-Cookie_ header of the specified
+<em>response</em>, or raises either HTTY::NoResponseError or
+HTTY::NoSetCookieHeaderError.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><span class='object_link'><a href="NoResponseError.html" title="HTTY::NoResponseError (class)">HTTY::NoResponseError</a></span></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 244</span>
+
+<span class='def def kw'>def</span> <span class='cookies_use identifier id'>cookies_use</span><span class='lparen token'>(</span><span class='response identifier id'>response</span><span class='rparen token'>)</span>
+  <span class='raise identifier id'>raise</span> <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='NoResponseError constant id'>NoResponseError</span> <span class='unless unless_mod kw'>unless</span> <span class='response identifier id'>response</span>
+
+  <span class='cookies_header identifier id'>cookies_header</span> <span class='assign token'>=</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='headers identifier id'>headers</span><span class='dot token'>.</span><span class='detect identifier id'>detect</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='bitor op'>|</span>
+    <span class='name identifier id'>name</span> <span class='eq op'>==</span> <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='Response constant id'>Response</span><span class='colon2 op'>::</span><span class='COOKIES_HEADER_NAME constant id'>COOKIES_HEADER_NAME</span>
+  <span class='end end kw'>end</span>
+  <span class='unless unless kw'>unless</span> <span class='cookies_header identifier id'>cookies_header</span> <span class='andop op'>&amp;&amp;</span> <span class='cookies_header identifier id'>cookies_header</span><span class='dot token'>.</span><span class='last identifier id'>last</span>
+    <span class='raise identifier id'>raise</span> <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='NoSetCookieHeaderError constant id'>NoSetCookieHeaderError</span>
+  <span class='end end kw'>end</span>
+  <span class='header_set identifier id'>header_set</span> <span class='COOKIES_HEADER_NAME constant id'>COOKIES_HEADER_NAME</span><span class='comma token'>,</span> <span class='cookies_header identifier id'>cookies_header</span><span class='dot token'>.</span><span class='last identifier id'>last</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>delete!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP <tt>DELETE</tt> request using the path of #uri.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+257
+258
+259</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 257</span>
+
+<span class='def def kw'>def</span> <span class='delete! fid id'>delete!</span>
+  <span class='request! fid id'>request!</span> <span class='symbol val'>:delete</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="dup_without_response-instance_method">
+  
+    - (<tt>Object</tt>) <strong>dup_without_response</strong>  <span class="extras">(protected)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+428
+429
+430
+431
+432
+433</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 428</span>
+
+<span class='def def kw'>def</span> <span class='dup_without_response identifier id'>dup_without_response</span>
+  <span class='request identifier id'>request</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='dup identifier id'>dup</span>
+  <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='response identifier id'>response</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+  <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='instance_variable_set identifier id'>instance_variable_set</span> <span class='string val'>'@request_method'</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span>
+  <span class='request identifier id'>request</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="establish_basic_authentication-instance_method">
+  
+    - (<tt>Object</tt>) <strong>establish_basic_authentication</strong>  <span class="extras">(protected)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+435
+436
+437
+438
+439
+440</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 435</span>
+
+<span class='def def kw'>def</span> <span class='establish_basic_authentication identifier id'>establish_basic_authentication</span>
+  <span class='value identifier id'>value</span> <span class='assign token'>=</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='userinfo identifier id'>userinfo</span>                                                 <span class='integer val'>?
+</span>          <span class='dstring node'>&quot;Basic #{Base64.encode64(URI.unescape(uri.userinfo)).chomp}&quot;</span> <span class='colon op'>:</span>
+          <span class='nil nil kw'>nil</span>
+  <span class='header_set identifier id'>header_set</span> <span class='AUTHORIZATION_HEADER_NAME constant id'>AUTHORIZATION_HEADER_NAME</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="follow-instance_method">
+  
+    - (<tt>Object</tt>) <strong>follow</strong>(response) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri according to the <em>Location</em> header of the
+specified <em>response</em>, or raises either HTTY::NoResponseError or
+HTTY::NoLocationHeaderError.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><span class='object_link'><a href="NoResponseError.html" title="HTTY::NoResponseError (class)">HTTY::NoResponseError</a></span></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 264</span>
+
+<span class='def def kw'>def</span> <span class='follow identifier id'>follow</span><span class='lparen token'>(</span><span class='response identifier id'>response</span><span class='rparen token'>)</span>
+  <span class='raise identifier id'>raise</span> <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='NoResponseError constant id'>NoResponseError</span> <span class='unless unless_mod kw'>unless</span> <span class='response identifier id'>response</span>
+
+  <span class='location_header identifier id'>location_header</span> <span class='assign token'>=</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='headers identifier id'>headers</span><span class='dot token'>.</span><span class='detect identifier id'>detect</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='bitor op'>|</span>
+    <span class='name identifier id'>name</span> <span class='eq op'>==</span> <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='Response constant id'>Response</span><span class='colon2 op'>::</span><span class='LOCATION_HEADER_NAME constant id'>LOCATION_HEADER_NAME</span>
+  <span class='end end kw'>end</span>
+  <span class='unless unless kw'>unless</span> <span class='location_header identifier id'>location_header</span> <span class='andop op'>&amp;&amp;</span> <span class='location_header identifier id'>location_header</span><span class='dot token'>.</span><span class='last identifier id'>last</span>
+    <span class='raise identifier id'>raise</span> <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='NoLocationHeaderError constant id'>NoLocationHeaderError</span>
+  <span class='end end kw'>end</span>
+  <span class='address identifier id'>address</span> <span class='location_header identifier id'>location_header</span><span class='dot token'>.</span><span class='last identifier id'>last</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fragment_set-instance_method">
+  
+    - (<tt>Object</tt>) <strong>fragment_set</strong>(fragment) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri with the specified <em>fragment</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+277
+278
+279</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 277</span>
+
+<span class='def def kw'>def</span> <span class='fragment_set identifier id'>fragment_set</span><span class='lparen token'>(</span><span class='fragment identifier id'>fragment</span><span class='rparen token'>)</span>
+  <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:fragment</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='fragment identifier id'>fragment</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fragment_unset-instance_method">
+  
+    - (<tt>Object</tt>) <strong>fragment_unset</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri without a fragment.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+282
+283
+284</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 282</span>
+
+<span class='def def kw'>def</span> <span class='fragment_unset identifier id'>fragment_unset</span>
+  <span class='fragment_set identifier id'>fragment_set</span> <span class='nil nil kw'>nil</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>get!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP <tt>GET</tt> request using the path of #uri.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+287
+288
+289</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 287</span>
+
+<span class='def def kw'>def</span> <span class='get! fid id'>get!</span>
+  <span class='request! fid id'>request!</span> <span class='symbol val'>:get</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="head!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>head!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP <tt>HEAD</tt> request using the path of #uri.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+292
+293
+294</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 292</span>
+
+<span class='def def kw'>def</span> <span class='head! fid id'>head!</span>
+  <span class='request! fid id'>request!</span> <span class='symbol val'>:head</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="header_set-instance_method">
+  
+    - (<tt>Object</tt>) <strong>header_set</strong>(name, value) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Appends to #headers or changes the element of #headers using the specified
+<em>name</em> and <em>value</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 298</span>
+
+<span class='def def kw'>def</span> <span class='header_set identifier id'>header_set</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='dup_without_response identifier id'>dup_without_response</span><span class='dot token'>.</span><span class='header_set identifier id'>header_set</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='response identifier id'>response</span>
+
+  <span class='name identifier id'>name</span> <span class='assign token'>=</span> <span class='name identifier id'>name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
+  <span class='if if kw'>if</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+    <span class='@headers ivar id'>@headers</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span> <span class='name identifier id'>name</span>
+    <span class='return return kw'>return</span> <span class='self self kw'>self</span>
+  <span class='end end kw'>end</span>
+
+  <span class='@headers ivar id'>@headers</span><span class='lbrack token'>[</span><span class='name identifier id'>name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
+  <span class='self self kw'>self</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="header_unset-instance_method">
+  
+    - (<tt>Object</tt>) <strong>header_unset</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Removes the element of #headers having the specified <em>name</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+312
+313
+314</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 312</span>
+
+<span class='def def kw'>def</span> <span class='header_unset identifier id'>header_unset</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
+  <span class='header_set identifier id'>header_set</span> <span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="headers-instance_method">
+  
+    - (<tt>Object</tt>) <strong>headers</strong>(include_content_length = METHODS_SENDING_BODY.include?(request_method)) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns an array of the headers belonging to the payload. If
+<em>include_content_length</em> is <tt>false</tt>, then a &#8216;Content
+Length&#8217; header will be omitted. If <em>include_content_length</em> is
+not specified, then it will be <tt>true</tt> if #request_method is an HTTP
+method for which body content is expected.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 321</span>
+
+<span class='def def kw'>def</span> <span class='headers identifier id'>headers</span><span class='lparen token'>(</span><span class='include_content_length identifier id'>include_content_length</span><span class='assign token'>=</span>
+            <span class='METHODS_SENDING_BODY constant id'>METHODS_SENDING_BODY</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='request_method identifier id'>request_method</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='unless unless kw'>unless</span> <span class='include_content_length identifier id'>include_content_length</span>
+    <span class='return return kw'>return</span> <span class='super super kw'>super</span><span class='lparen token'>(</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='reject identifier id'>reject</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='bitor op'>|</span>
+      <span class='name identifier id'>name</span> <span class='eq op'>==</span> <span class='string val'>'Content-Length'</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+
+  <span class='super super kw'>super</span><span class='lparen token'>(</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="headers_unset_all-instance_method">
+  
+    - (<tt>Object</tt>) <strong>headers_unset_all</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Removes all #headers.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+333
+334
+335
+336
+337
+338</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 333</span>
+
+<span class='def def kw'>def</span> <span class='headers_unset_all identifier id'>headers_unset_all</span>
+  <span class='return return kw'>return</span> <span class='dup_without_response identifier id'>dup_without_response</span><span class='dot token'>.</span><span class='headers_unset_all identifier id'>headers_unset_all</span> <span class='if if_mod kw'>if</span> <span class='response identifier id'>response</span>
+
+  <span class='@headers ivar id'>@headers</span><span class='dot token'>.</span><span class='clear identifier id'>clear</span>
+  <span class='self self kw'>self</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="host_set-instance_method">
+  
+    - (<tt>Object</tt>) <strong>host_set</strong>(host) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri with the specified <em>host</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+341
+342
+343</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 341</span>
+
+<span class='def def kw'>def</span> <span class='host_set identifier id'>host_set</span><span class='lparen token'>(</span><span class='host identifier id'>host</span><span class='rparen token'>)</span>
+  <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:host</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='host identifier id'>host</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="options!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>options!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP <tt>OPTIONS</tt> request using the path of #uri.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+346
+347
+348</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 346</span>
+
+<span class='def def kw'>def</span> <span class='options! fid id'>options!</span>
+  <span class='request! fid id'>request!</span> <span class='symbol val'>:options</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="patch!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>patch!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP <tt>PATCH</tt> request using the path of #uri.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+351
+352
+353</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 351</span>
+
+<span class='def def kw'>def</span> <span class='patch! fid id'>patch!</span>
+  <span class='request! fid id'>request!</span> <span class='symbol val'>:patch</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="path_query_and_fragment-instance_method">
+  
+    - (<tt>Object</tt>) <strong>path_query_and_fragment</strong>  <span class="extras">(protected)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+442
+443
+444
+445
+446</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 442</span>
+
+<span class='def def kw'>def</span> <span class='path_query_and_fragment identifier id'>path_query_and_fragment</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='build_path_query_and_fragment identifier id'>build_path_query_and_fragment</span> <span class='symbol val'>:path</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='path identifier id'>path</span><span class='comma token'>,</span>
+                                           <span class='symbol val'>:query</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='query identifier id'>query</span><span class='comma token'>,</span>
+                                           <span class='symbol val'>:fragment</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='fragment identifier id'>fragment</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="path_set-instance_method">
+  
+    - (<tt>Object</tt>) <strong>path_set</strong>(path) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri with the specified <em>path</em> which may be
+absolute or relative.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+357
+358
+359
+360</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 357</span>
+
+<span class='def def kw'>def</span> <span class='path_set identifier id'>path_set</span><span class='lparen token'>(</span><span class='path identifier id'>path</span><span class='rparen token'>)</span>
+  <span class='absolute_path identifier id'>absolute_path</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='Pathname constant id'>Pathname</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='path identifier id'>path</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='path identifier id'>path</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
+  <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:path</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='absolute_path identifier id'>absolute_path</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="port_set-instance_method">
+  
+    - (<tt>Object</tt>) <strong>port_set</strong>(port) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri with the specified <em>port</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+363
+364
+365</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 363</span>
+
+<span class='def def kw'>def</span> <span class='port_set identifier id'>port_set</span><span class='lparen token'>(</span><span class='port identifier id'>port</span><span class='rparen token'>)</span>
+  <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:port</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='port identifier id'>port</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="post!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>post!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP <tt>POST</tt> request using the path of #uri.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+368
+369
+370</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 368</span>
+
+<span class='def def kw'>def</span> <span class='post! fid id'>post!</span>
+  <span class='request! fid id'>request!</span> <span class='symbol val'>:post</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="put!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>put!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP <tt>PUT</tt> request using the path of #uri.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+373
+374
+375</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 373</span>
+
+<span class='def def kw'>def</span> <span class='put! fid id'>put!</span>
+  <span class='request! fid id'>request!</span> <span class='symbol val'>:put</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="query_set-instance_method">
+  
+    - (<tt>Object</tt>) <strong>query_set</strong>(name, value) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri, with the specified <em>value</em> for the
+query-string parameter specified by <em>name</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 379</span>
+
+<span class='def def kw'>def</span> <span class='query_set identifier id'>query_set</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
+  <span class='query identifier id'>query</span>     <span class='assign token'>=</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='query identifier id'>query</span> <span class='integer val'>? </span><span class='dstring node'>&quot;&amp;#{uri.query}&amp;&quot;</span> <span class='colon op'>:</span> <span class='string val'>''</span>
+  <span class='parameter identifier id'>parameter</span> <span class='assign token'>=</span> <span class='Regexp constant id'>Regexp</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;&amp;#{Regexp.escape name}=.+?&amp;&quot;</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='query identifier id'>query</span> <span class='match op'>=~</span> <span class='parameter identifier id'>parameter</span>
+    <span class='new_query identifier id'>new_query</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='integer val'>?
+</span>                <span class='query identifier id'>query</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='parameter identifier id'>parameter</span><span class='comma token'>,</span> <span class='string val'>'&amp;'</span><span class='rparen token'>)</span> <span class='colon op'>:</span>
+                <span class='query identifier id'>query</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='parameter identifier id'>parameter</span><span class='comma token'>,</span> <span class='dstring node'>&quot;&amp;#{name}=#{value}&amp;&quot;</span><span class='rparen token'>)</span>
+  <span class='else else kw'>else</span>
+    <span class='new_query identifier id'>new_query</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='integer val'>? </span><span class='query identifier id'>query</span> <span class='colon op'>:</span> <span class='dstring node'>&quot;#{query}#{name}=#{value}&quot;</span>
+  <span class='end end kw'>end</span>
+  <span class='new_query identifier id'>new_query</span> <span class='assign token'>=</span> <span class='new_query identifier id'>new_query</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/^&amp;/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/&amp;$/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span>
+  <span class='new_query identifier id'>new_query</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span> <span class='if if_mod kw'>if</span> <span class='lparen token'>(</span><span class='new_query identifier id'>new_query</span> <span class='eq op'>==</span> <span class='string val'>''</span><span class='rparen token'>)</span>
+  <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:query</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='new_query identifier id'>new_query</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="query_unset-instance_method">
+  
+    - (<tt>Object</tt>) <strong>query_unset</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri, without the query-string parameter specified by
+<em>name</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+396
+397
+398</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 396</span>
+
+<span class='def def kw'>def</span> <span class='query_unset identifier id'>query_unset</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
+  <span class='query_set identifier id'>query_set</span> <span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="query_unset_all-instance_method">
+  
+    - (<tt>Object</tt>) <strong>query_unset_all</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri without a query string.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+401
+402
+403</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 401</span>
+
+<span class='def def kw'>def</span> <span class='query_unset_all identifier id'>query_unset_all</span>
+  <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:query</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='nil nil kw'>nil</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="rebuild_uri-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rebuild_uri</strong>(changed_components)  <span class="extras">(protected)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 448</span>
+
+<span class='def def kw'>def</span> <span class='rebuild_uri identifier id'>rebuild_uri</span><span class='lparen token'>(</span><span class='changed_components identifier id'>changed_components</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='dup_without_response identifier id'>dup_without_response</span><span class='dot token'>.</span><span class='rebuild_uri identifier id'>rebuild_uri</span><span class='lparen token'>(</span><span class='changed_components identifier id'>changed_components</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='response identifier id'>response</span>
+
+  <span class='components identifier id'>components</span> <span class='assign token'>=</span> <span class='URI constant id'>URI</span><span class='colon2 op'>::</span><span class='HTTP constant id'>HTTP</span><span class='colon2 op'>::</span><span class='COMPONENT constant id'>COMPONENT</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='result identifier id'>result</span><span class='comma token'>,</span> <span class='c identifier id'>c</span><span class='bitor op'>|</span>
+    <span class='result identifier id'>result</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span> <span class='c identifier id'>c</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='c identifier id'>c</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='symbol val'>:set_up_cookies_and_authentication</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+    <span class='@uri ivar id'>@uri</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='build_uri identifier id'>build_uri</span><span class='lparen token'>(</span><span class='components identifier id'>components</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='changed_components identifier id'>changed_components</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="scheme_set-instance_method">
+  
+    - (<tt>Object</tt>) <strong>scheme_set</strong>(scheme) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri with the specified <em>scheme</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+406
+407
+408</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 406</span>
+
+<span class='def def kw'>def</span> <span class='scheme_set identifier id'>scheme_set</span><span class='lparen token'>(</span><span class='scheme identifier id'>scheme</span><span class='rparen token'>)</span>
+  <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:scheme</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='scheme identifier id'>scheme</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="trace!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>trace!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP <tt>TRACE</tt> request using the path of #uri.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+411
+412
+413</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 411</span>
+
+<span class='def def kw'>def</span> <span class='trace! fid id'>trace!</span>
+  <span class='request! fid id'>request!</span> <span class='symbol val'>:trace</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="userinfo_set-instance_method">
+  
+    - (<tt>Object</tt>) <strong>userinfo_set</strong>(username, password = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri with the specified <em>userinfo</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+416
+417
+418
+419</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 416</span>
+
+<span class='def def kw'>def</span> <span class='userinfo_set identifier id'>userinfo_set</span><span class='lparen token'>(</span><span class='username identifier id'>username</span><span class='comma token'>,</span> <span class='password identifier id'>password</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='userinfo identifier id'>userinfo</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='username identifier id'>username</span><span class='comma token'>,</span> <span class='password identifier id'>password</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='compact identifier id'>compact</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>':'</span><span class='rparen token'>)</span>
+  <span class='rebuild_uri identifier id'>rebuild_uri</span> <span class='symbol val'>:userinfo</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='userinfo identifier id'>userinfo</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="userinfo_unset-instance_method">
+  
+    - (<tt>Object</tt>) <strong>userinfo_unset</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Establishes a new #uri without userinfo.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+422
+423
+424</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/request.rb', line 422</span>
+
+<span class='def def kw'>def</span> <span class='userinfo_unset identifier id'>userinfo_unset</span>
+  <span class='userinfo_set identifier id'>userinfo_set</span> <span class='nil nil kw'>nil</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Dec 18 16:47:28 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

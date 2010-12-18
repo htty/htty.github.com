@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: HTTY::CLI</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../HTTY.html" title="HTTY (module)">HTTY</a></span></span>
+     &raquo; 
+    <span class="title">CLI</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: HTTY::CLI
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">HTTY::CLI</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="CLI/Display.html" title="HTTY::CLI::Display (module)">Display</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/htty/cli.rb<span class="defines">,<br />
+  lib/htty/cli/display.rb,<br /> lib/htty/cli/command.rb,<br /> lib/htty/cli/commands.rb,<br /> lib/htty/cli/commands/cd.rb,<br /> lib/htty/cli/commands/put.rb,<br /> lib/htty/cli/commands/get.rb,<br /> lib/htty/cli/url_escaping.rb,<br /> lib/htty/cli/commands/exit.rb,<br /> lib/htty/cli/commands/quit.rb,<br /> lib/htty/cli/commands/form.rb,<br /> lib/htty/cli/commands/post.rb,<br /> lib/htty/cli/commands/undo.rb,<br /> lib/htty/cli/commands/help.rb,<br /> lib/htty/cli/commands/reuse.rb,<br /> lib/htty/cli/commands/status.rb,<br /> lib/htty/cli/commands/follow.rb,<br /> lib/htty/cli/commands/delete.rb,<br /> lib/htty/cli/commands/history.rb,<br /> lib/htty/cli/commands/address.rb,<br /> lib/htty/cli/commands/cookies.rb,<br /> lib/htty/cli/commands/body_set.rb,<br /> lib/htty/cli/commands/form_add.rb,<br /> lib/htty/cli/commands/port_set.rb,<br /> lib/htty/cli/commands/host_set.rb,<br /> lib/htty/cli/commands/http_put.rb,<br /> lib/htty/cli/commands/path_set.rb,<br /> lib/htty/cli/commands/http_get.rb,<br /> lib/htty/cli/commands/query_set.rb,<br /> lib/htty/cli/commands/http_head.rb,<br /> lib/htty/cli/commands/http_post.rb,<br /> lib/htty/cli/commands/body_clear.rb,<br /> lib/htty/cli/commands/scheme_set.rb,<br /> lib/htty/cli/commands/form_clear.rb,<br /> lib/htty/cli/commands/header_set.rb,<br /> lib/htty/cli/http_method_command.rb,<br /> lib/htty/cli/commands/body_unset.rb,<br /> lib/htty/cli/commands/http_trace.rb,<br /> lib/htty/cli/commands/cookie_add.rb,<br /> lib/htty/cli/commands/http_delete.rb,<br /> lib/htty/cli/commands/cookies_add.rb,<br /> lib/htty/cli/commands/query_clear.rb,<br /> lib/htty/cli/commands/cookies_use.rb,<br /> lib/htty/cli/commands/query_unset.rb,<br /> lib/htty/cli/commands/form_remove.rb,<br /> lib/htty/cli/commands/headers_set.rb,<br /> lib/htty/cli/commands/header_unset.rb,<br /> lib/htty/cli/commands/fragment_set.rb,<br /> lib/htty/cli/commands/body_request.rb,<br /> lib/htty/cli/commands/http_options.rb,<br /> lib/htty/cli/commands/userinfo_set.rb,<br /> lib/htty/cli/commands/body_response.rb,<br /> lib/htty/cli/commands/headers_unset.rb,<br /> lib/htty/cli/commands/cookie_remove.rb,<br /> lib/htty/cli/commands/headers_clear.rb,<br /> lib/htty/cli/commands/cookies_clear.rb,<br /> lib/htty/cli/commands/userinfo_unset.rb,<br /> lib/htty/cli/commands/fragment_clear.rb,<br /> lib/htty/cli/commands/userinfo_clear.rb,<br /> lib/htty/cli/commands/fragment_unset.rb,<br /> lib/htty/cli/commands/cookies_remove.rb,<br /> lib/htty/cli/commands/query_unset_all.rb,<br /> lib/htty/cli/commands/history_verbose.rb,<br /> lib/htty/cli/commands/headers_request.rb,<br /> lib/htty/cli/commands/form_remove_all.rb,<br /> lib/htty/cli/commands/headers_response.rb,<br /> lib/htty/cli/commands/headers_unset_all.rb,<br /> lib/htty/cli/commands/cookies_remove_all.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Encapsulates the command-line interface to <em>htty</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="CLI/Commands.html" title="HTTY::CLI::Commands (module)">Commands</a></span>, <span class='object_link'><a href="CLI/Display.html" title="HTTY::CLI::Display (module)">Display</a></span>, <span class='object_link'><a href="CLI/HTTPMethodCommand.html" title="HTTY::CLI::HTTPMethodCommand (module)">HTTPMethodCommand</a></span>, <span class='object_link'><a href="CLI/UrlEscaping.html" title="HTTY::CLI::UrlEscaping (module)">UrlEscaping</a></span>
+    
+   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="CLI/Command.html" title="HTTY::CLI::Command (class)">Command</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="CLI/Display.html" title="HTTY::CLI::Display (module)">Display</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="CLI/Display.html#FORMATS-constant" title="HTTY::CLI::Display::FORMATS (constant)">FORMATS</a></span></p>
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#session-instance_method" title="#session (instance method)">- (Object) <strong>session</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the HTTY::Session created from command-line arguments.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (CLI) <strong>initialize</strong>(command_line_arguments) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Instantiates a new HTTY::CLI with the specified
+<em>command_line_arguments</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run%21-instance_method" title="#run! (instance method)">- (Object) <strong>run!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Takes over stdin, stdout, and stderr to expose #session to command-line
+interaction.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="CLI/Display.html" title="HTTY::CLI::Display (module)">Display</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="CLI/Display.html#format-instance_method" title="HTTY::CLI::Display#format (method)">#format</a></span>, <span class='object_link'><a href="CLI/Display.html#indent-instance_method" title="HTTY::CLI::Display#indent (method)">#indent</a></span>, <span class='object_link'><a href="CLI/Display.html#logotype-instance_method" title="HTTY::CLI::Display#logotype (method)">#logotype</a></span>, <span class='object_link'><a href="CLI/Display.html#normal-instance_method" title="HTTY::CLI::Display#normal (method)">#normal</a></span>, <span class='object_link'><a href="CLI/Display.html#notice-instance_method" title="HTTY::CLI::Display#notice (method)">#notice</a></span>, <span class='object_link'><a href="CLI/Display.html#pluralize-instance_method" title="HTTY::CLI::Display#pluralize (method)">#pluralize</a></span>, <span class='object_link'><a href="CLI/Display.html#prompt-instance_method" title="HTTY::CLI::Display#prompt (method)">#prompt</a></span>, <span class='object_link'><a href="CLI/Display.html#rescuing_from-instance_method" title="HTTY::CLI::Display#rescuing_from (method)">#rescuing_from</a></span>, <span class='object_link'><a href="CLI/Display.html#say-instance_method" title="HTTY::CLI::Display#say (method)">#say</a></span>, <span class='object_link'><a href="CLI/Display.html#say_goodbye-instance_method" title="HTTY::CLI::Display#say_goodbye (method)">#say_goodbye</a></span>, <span class='object_link'><a href="CLI/Display.html#say_header-instance_method" title="HTTY::CLI::Display#say_header (method)">#say_header</a></span>, <span class='object_link'><a href="CLI/Display.html#say_hello-instance_method" title="HTTY::CLI::Display#say_hello (method)">#say_hello</a></span>, <span class='object_link'><a href="CLI/Display.html#show_headers-instance_method" title="HTTY::CLI::Display#show_headers (method)">#show_headers</a></span>, <span class='object_link'><a href="CLI/Display.html#show_request-instance_method" title="HTTY::CLI::Display#show_request (method)">#show_request</a></span>, <span class='object_link'><a href="CLI/Display.html#show_response-instance_method" title="HTTY::CLI::Display#show_response (method)">#show_response</a></span>, <span class='object_link'><a href="CLI/Display.html#strong-instance_method" title="HTTY::CLI::Display#strong (method)">#strong</a></span>, <span class='object_link'><a href="CLI/Display.html#word_wrap-instance_method" title="HTTY::CLI::Display#word_wrap (method)">#word_wrap</a></span>, <span class='object_link'><a href="CLI/Display.html#word_wrap_indented-instance_method" title="HTTY::CLI::Display#word_wrap_indented (method)">#word_wrap_indented</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="HTTY::CLI (class)">CLI</a></span></tt>) <strong>initialize</strong>(command_line_arguments) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Instantiates a new HTTY::CLI with the specified
+<em>command_line_arguments</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli.rb', line 19</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='command_line_arguments identifier id'>command_line_arguments</span><span class='rparen token'>)</span>
+  <span class='exit identifier id'>exit</span> <span class='unless unless_mod kw'>unless</span> <span class='@session ivar id'>@session</span> <span class='assign token'>=</span> <span class='rescuing_from identifier id'>rescuing_from</span><span class='lparen token'>(</span><span class='ArgumentError constant id'>ArgumentError</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+    <span class='everything_but_options identifier id'>everything_but_options</span> <span class='assign token'>=</span> <span class='command_line_arguments identifier id'>command_line_arguments</span><span class='dot token'>.</span><span class='reject identifier id'>reject</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span>
+      <span class='a identifier id'>a</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>0</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'-'</span>
+    <span class='end end kw'>end</span>
+    <span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='Session constant id'>Session</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='everything_but_options identifier id'>everything_but_options</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="session-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="session-instance_method">
+  
+    - (<tt>Object</tt>) <strong>session</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the HTTY::Session created from command-line arguments.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli.rb', line 16</span>
+
+<span class='def def kw'>def</span> <span class='session identifier id'>session</span>
+  <span class='@session ivar id'>@session</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="run!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Takes over stdin, stdout, and stderr to expose #session to command-line
+interaction.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli.rb', line 30</span>
+
+<span class='def def kw'>def</span> <span class='run! fid id'>run!</span>
+  <span class='say_hello identifier id'>say_hello</span>
+  <span class='catch identifier id'>catch</span> <span class='symbol val'>:quit</span> <span class='do do kw'>do</span>
+    <span class='loop identifier id'>loop</span> <span class='do do kw'>do</span>
+      <span class='begin begin kw'>begin</span>
+        <span class='unless unless kw'>unless</span> <span class='lparen token'>(</span><span class='command identifier id'>command</span> <span class='assign token'>=</span> <span class='prompt_for_command identifier id'>prompt_for_command</span><span class='rparen token'>)</span>
+          <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='notice identifier id'>notice</span><span class='lparen token'>(</span><span class='string val'>'Unrecognized command'</span><span class='rparen token'>)</span>
+          <span class='puts identifier id'>puts</span> <span class='notice identifier id'>notice</span><span class='lparen token'>(</span><span class='string val'>'Try typing '</span> <span class='plus op'>+</span>
+                      <span class='strong identifier id'>strong</span><span class='lparen token'>(</span><span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='Help constant id'>Help</span><span class='dot token'>.</span><span class='command_line identifier id'>command_line</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+          <span class='next next kw'>next</span>
+        <span class='end end kw'>end</span>
+        <span class='if if kw'>if</span> <span class='command identifier id'>command</span> <span class='eq op'>==</span> <span class='symbol val'>:unclosed_quote</span>
+          <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='notice identifier id'>notice</span><span class='lparen token'>(</span><span class='string val'>'Unclosed quoted expression -- try again'</span><span class='rparen token'>)</span>
+          <span class='next next kw'>next</span>
+        <span class='end end kw'>end</span>
+        <span class='if if kw'>if</span> <span class='ARGV constant id'>ARGV</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='string val'>'--debug'</span><span class='rparen token'>)</span>
+          <span class='command identifier id'>command</span><span class='dot token'>.</span><span class='perform identifier id'>perform</span>
+        <span class='else else kw'>else</span>
+          <span class='rescuing_from identifier id'>rescuing_from</span> <span class='Exception constant id'>Exception</span> <span class='do do kw'>do</span>
+            <span class='command identifier id'>command</span><span class='dot token'>.</span><span class='perform identifier id'>perform</span>
+          <span class='end end kw'>end</span>
+        <span class='end end kw'>end</span>
+      <span class='rescue rescue kw'>rescue</span> <span class='Interrupt constant id'>Interrupt</span>
+        <span class='puts identifier id'>puts</span>
+        <span class='puts identifier id'>puts</span> <span class='notice identifier id'>notice</span><span class='lparen token'>(</span><span class='string val'>'Type '</span> <span class='plus op'>+</span>
+                    <span class='strong identifier id'>strong</span><span class='lparen token'>(</span><span class='HTTY constant id'>HTTY</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='Quit constant id'>Quit</span><span class='dot token'>.</span><span class='command_line identifier id'>command_line</span><span class='rparen token'>)</span> <span class='plus op'>+</span>
+                    <span class='string val'>' to quit'</span><span class='rparen token'>)</span>
+        <span class='next next kw'>next</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='say_goodbye identifier id'>say_goodbye</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Dec 18 16:47:23 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

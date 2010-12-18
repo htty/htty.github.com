@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: HTTY::RequestsUtil</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (R)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../HTTY.html" title="HTTY (module)">HTTY</a></span></span>
+     &raquo; 
+    <span class="title">RequestsUtil</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: HTTY::RequestsUtil
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/htty/requests_util.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Provides support for making HTTP(S) requests.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-class_method" title="delete (class method)">+ (Object) <strong>delete</strong>(request) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP DELETE request with the specified <em>request</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get-class_method" title="get (class method)">+ (Object) <strong>get</strong>(request) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP GET request with the specified <em>request</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#head-class_method" title="head (class method)">+ (Object) <strong>head</strong>(request) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP HEAD request with the specified <em>request</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#http_response_to_status-class_method" title="http_response_to_status (class method)">+ (Object) <strong>http_response_to_status</strong>(http_response) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options-class_method" title="options (class method)">+ (Object) <strong>options</strong>(request) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP OPTIONS request with the specified <em>request</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#post-class_method" title="post (class method)">+ (Object) <strong>post</strong>(request) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP POST request with the specified <em>request</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#put-class_method" title="put (class method)">+ (Object) <strong>put</strong>(request) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP PUT request with the specified <em>request</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trace-class_method" title="trace (class method)">+ (Object) <strong>trace</strong>(request) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Makes an HTTP TRACE request with the specified <em>request</em>.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="delete-class_method">
+  
+    + (<tt>Object</tt>) <strong>delete</strong>(request) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP DELETE request with the specified <em>request</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/requests_util.rb', line 12</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span>
+  <span class='request identifier id'>request</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='host identifier id'>host</span><span class='bitor op'>|</span>
+    <span class='host identifier id'>host</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='symbol val'>:path_query_and_fragment</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='headers identifier id'>headers</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get-class_method">
+  
+    + (<tt>Object</tt>) <strong>get</strong>(request) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP GET request with the specified <em>request</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/requests_util.rb', line 19</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='get identifier id'>get</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span>
+  <span class='request identifier id'>request</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='host identifier id'>host</span><span class='bitor op'>|</span>
+    <span class='host identifier id'>host</span><span class='dot token'>.</span><span class='request_get identifier id'>request_get</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='symbol val'>:path_query_and_fragment</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='headers identifier id'>headers</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="head-class_method">
+  
+    + (<tt>Object</tt>) <strong>head</strong>(request) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP HEAD request with the specified <em>request</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/requests_util.rb', line 26</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='head identifier id'>head</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span>
+  <span class='request identifier id'>request</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='host identifier id'>host</span><span class='bitor op'>|</span>
+    <span class='host identifier id'>host</span><span class='dot token'>.</span><span class='head identifier id'>head</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='symbol val'>:path_query_and_fragment</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='headers identifier id'>headers</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="http_response_to_status-class_method">
+  
+    + (<tt>Object</tt>) <strong>http_response_to_status</strong>(http_response)  <span class="extras">(protected)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/requests_util.rb', line 66</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='http_response_to_status identifier id'>http_response_to_status</span><span class='lparen token'>(</span><span class='http_response identifier id'>http_response</span><span class='rparen token'>)</span>
+  <span class='lbrack token'>[</span><span class='http_response identifier id'>http_response</span><span class='dot token'>.</span><span class='code identifier id'>code</span><span class='comma token'>,</span>
+   <span class='http_response identifier id'>http_response</span><span class='dot token'>.</span><span class='code_type identifier id'>code_type</span><span class='dot token'>.</span><span class='name identifier id'>name</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/^Net::HTTP/</span><span class='comma token'>,</span>       <span class='string val'>''</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+                                <span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/(\S)([A-Z][a-z])/</span><span class='comma token'>,</span> <span class='string val'>'\1 \2'</span><span class='rparen token'>)</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="options-class_method">
+  
+    + (<tt>Object</tt>) <strong>options</strong>(request) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP OPTIONS request with the specified <em>request</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/requests_util.rb', line 33</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='options identifier id'>options</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span>
+  <span class='request identifier id'>request</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='host identifier id'>host</span><span class='bitor op'>|</span>
+    <span class='host identifier id'>host</span><span class='dot token'>.</span><span class='options identifier id'>options</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='symbol val'>:path_query_and_fragment</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='headers identifier id'>headers</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="post-class_method">
+  
+    + (<tt>Object</tt>) <strong>post</strong>(request) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP POST request with the specified <em>request</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/requests_util.rb', line 40</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='post identifier id'>post</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span>
+  <span class='request identifier id'>request</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='host identifier id'>host</span><span class='bitor op'>|</span>
+    <span class='host identifier id'>host</span><span class='dot token'>.</span><span class='post identifier id'>post</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='symbol val'>:path_query_and_fragment</span><span class='rparen token'>)</span><span class='comma token'>,</span>
+              <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='body identifier id'>body</span><span class='comma token'>,</span>
+              <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='headers identifier id'>headers</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="put-class_method">
+  
+    + (<tt>Object</tt>) <strong>put</strong>(request) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP PUT request with the specified <em>request</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/requests_util.rb', line 49</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='put identifier id'>put</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span>
+  <span class='request identifier id'>request</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='host identifier id'>host</span><span class='bitor op'>|</span>
+    <span class='host identifier id'>host</span><span class='dot token'>.</span><span class='put identifier id'>put</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='symbol val'>:path_query_and_fragment</span><span class='rparen token'>)</span><span class='comma token'>,</span>
+             <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='body identifier id'>body</span><span class='comma token'>,</span>
+             <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='headers identifier id'>headers</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="trace-class_method">
+  
+    + (<tt>Object</tt>) <strong>trace</strong>(request) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Makes an HTTP TRACE request with the specified <em>request</em>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/requests_util.rb', line 58</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='trace identifier id'>trace</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span>
+  <span class='request identifier id'>request</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='host identifier id'>host</span><span class='bitor op'>|</span>
+    <span class='host identifier id'>host</span><span class='dot token'>.</span><span class='trace identifier id'>trace</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='symbol val'>:path_query_and_fragment</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='headers identifier id'>headers</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Dec 18 16:47:32 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

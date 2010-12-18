@@ -1,0 +1,610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: HTTY::OrderedHash</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (O)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../HTTY.html" title="HTTY (module)">HTTY</a></span></span>
+     &raquo; 
+    <span class="title">OrderedHash</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: HTTY::OrderedHash
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">HTTY::OrderedHash</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/htty/ordered_hash.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Represents a Hash that preserves the insertion order of values. This class
+exists because Hash did not have this behavior in Ruby v1.8.7 and earlier.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3D%3D-instance_method" title="#== (instance method)">- (Object) <strong>==</strong>(other_hash) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D-instance_method" title="#[] (instance method)">- (Object) <strong>[]</strong>(key) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D%3D-instance_method" title="#[]= (instance method)">- (Object) <strong>[]=</strong>(key, value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clear-instance_method" title="#clear (instance method)">- (Object) <strong>clear</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(key) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#empty%3F-instance_method" title="#empty? (instance method)">- (Boolean) <strong>empty?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (OrderedHash) <strong>initialize</strong>(hash = {}) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+A new instance of OrderedHash.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_a-instance_method" title="#to_a (instance method)">- (Object) <strong>to_a</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="HTTY::OrderedHash (class)">OrderedHash</a></span></tt>) <strong>initialize</strong>(hash = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of OrderedHash
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/ordered_hash.rb', line 7</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='hash identifier id'>hash</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='@inner_hash ivar id'>@inner_hash</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='hash identifier id'>hash</span><span class='dot token'>.</span><span class='each_pair identifier id'>each_pair</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='bitor op'>|</span>
+    <span class='@inner_hash ivar id'>@inner_hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
+  <span class='end end kw'>end</span>
+  <span class='@inner_keys ivar id'>@inner_keys</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='@inner_hash ivar id'>@inner_hash</span><span class='dot token'>.</span><span class='each_key identifier id'>each_key</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='bitor op'>|</span>
+    <span class='@inner_keys ivar id'>@inner_keys</span> <span class='lshft op'>&lt;&lt;</span> <span class='k identifier id'>k</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="==-instance_method">
+  
+    - (<tt>Object</tt>) <strong>==</strong>(other_hash) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/ordered_hash.rb', line 35</span>
+
+<span class='def def kw'>def</span> <span class='eq op'>==</span><span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='other_hash identifier id'>other_hash</span><span class='dot token'>.</span><span class='kind_of? fid id'>kind_of?</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='rparen token'>)</span>
+    <span class='return return kw'>return</span> <span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='dot token'>.</span><span class='instance_variable_get identifier id'>instance_variable_get</span><span class='lparen token'>(</span><span class='string val'>'@inner_hash'</span><span class='rparen token'>)</span> <span class='eq op'>==</span> <span class='@inner_hash ivar id'>@inner_hash</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span>
+           <span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='dot token'>.</span><span class='instance_variable_get identifier id'>instance_variable_get</span><span class='lparen token'>(</span><span class='string val'>'@inner_keys'</span><span class='rparen token'>)</span> <span class='eq op'>==</span> <span class='@inner_keys ivar id'>@inner_keys</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+  <span class='if if kw'>if</span> <span class='other_hash identifier id'>other_hash</span><span class='dot token'>.</span><span class='kind_of? fid id'>kind_of?</span><span class='lparen token'>(</span><span class='@inner_hash ivar id'>@inner_hash</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='rparen token'>)</span>
+    <span class='return return kw'>return</span> <span class='other_hash identifier id'>other_hash</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='all? fid id'>all?</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='bitor op'>|</span>
+      <span class='other_hash identifier id'>other_hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='@inner_hash ivar id'>@inner_hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='false false kw'>false</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="[]-instance_method">
+  
+    - (<tt>Object</tt>) <strong>[]</strong>(key) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/ordered_hash.rb', line 25</span>
+
+<span class='def def kw'>def</span> <span class='aref op'>[]</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span>
+  <span class='@inner_hash ivar id'>@inner_hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="[]=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>[]=</strong>(key, value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/ordered_hash.rb', line 29</span>
+
+<span class='def def kw'>def</span> <span class='aset op'>[]=</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
+  <span class='@inner_keys ivar id'>@inner_keys</span> <span class='lshft op'>&lt;&lt;</span> <span class='key identifier id'>key</span> <span class='unless unless_mod kw'>unless</span> <span class='@inner_hash ivar id'>@inner_hash</span><span class='dot token'>.</span><span class='key? fid id'>key?</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span>
+  <span class='@inner_hash ivar id'>@inner_hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
+  <span class='self self kw'>self</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="clear-instance_method">
+  
+    - (<tt>Object</tt>) <strong>clear</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/ordered_hash.rb', line 48</span>
+
+<span class='def def kw'>def</span> <span class='clear identifier id'>clear</span>
+  <span class='@inner_hash ivar id'>@inner_hash</span><span class='dot token'>.</span><span class='clear identifier id'>clear</span>
+  <span class='@inner_keys ivar id'>@inner_keys</span><span class='dot token'>.</span><span class='clear identifier id'>clear</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete-instance_method">
+  
+    - (<tt>Object</tt>) <strong>delete</strong>(key) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/ordered_hash.rb', line 53</span>
+
+<span class='def def kw'>def</span> <span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span>
+  <span class='@inner_keys ivar id'>@inner_keys</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='@inner_hash ivar id'>@inner_hash</span><span class='dot token'>.</span><span class='key? fid id'>key?</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span>
+  <span class='@inner_hash ivar id'>@inner_hash</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span> <span class='key identifier id'>key</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="empty?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>empty?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/ordered_hash.rb', line 58</span>
+
+<span class='def def kw'>def</span> <span class='empty? fid id'>empty?</span>
+  <span class='@inner_hash ivar id'>@inner_hash</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_a-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_a</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/ordered_hash.rb', line 62</span>
+
+<span class='def def kw'>def</span> <span class='to_a identifier id'>to_a</span>
+  <span class='@inner_keys ivar id'>@inner_keys</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='result identifier id'>result</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='bitor op'>|</span>
+    <span class='result identifier id'>result</span> <span class='plus op'>+</span> <span class='lbrack token'>[</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='@inner_hash ivar id'>@inner_hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Dec 18 16:47:32 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

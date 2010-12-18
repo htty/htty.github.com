@@ -1,0 +1,1213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: HTTY::CLI::Display</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../HTTY.html" title="HTTY (module)">HTTY</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../CLI.html" title="HTTY::CLI (class)">CLI</a></span></span>
+     &raquo; 
+    <span class="title">Display</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: HTTY::CLI::Display
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../CLI.html" title="HTTY::CLI (class)">HTTY::CLI</a></span>, <span class='object_link'><a href="Command.html" title="HTTY::CLI::Command (class)">Command</a></span>, <span class='object_link'><a href="Commands/BodySet.html" title="HTTY::CLI::Commands::BodySet (class)">Commands::BodySet</a></span>, <span class='object_link'><a href="Commands/Cookies.html" title="HTTY::CLI::Commands::Cookies (class)">Commands::Cookies</a></span>, <span class='object_link'><a href="Commands/CookiesUse.html" title="HTTY::CLI::Commands::CookiesUse (class)">Commands::CookiesUse</a></span>, <span class='object_link'><a href="Commands/HeadersRequest.html" title="HTTY::CLI::Commands::HeadersRequest (class)">Commands::HeadersRequest</a></span>, <span class='object_link'><a href="Commands/HeadersResponse.html" title="HTTY::CLI::Commands::HeadersResponse (class)">Commands::HeadersResponse</a></span>, <span class='object_link'><a href="Commands/Help.html" title="HTTY::CLI::Commands::Help (class)">Commands::Help</a></span>, <span class='object_link'><a href="Commands/History.html" title="HTTY::CLI::Commands::History (class)">Commands::History</a></span>, <span class='object_link'><a href="Commands/HistoryVerbose.html" title="HTTY::CLI::Commands::HistoryVerbose (class)">Commands::HistoryVerbose</a></span>, <span class='object_link'><a href="Commands/Reuse.html" title="HTTY::CLI::Commands::Reuse (class)">Commands::Reuse</a></span>, <span class='object_link'><a href="Commands/Status.html" title="HTTY::CLI::Commands::Status (class)">Commands::Status</a></span>, <span class='object_link'><a href="HTTPMethodCommand.html" title="HTTY::CLI::HTTPMethodCommand (module)">HTTPMethodCommand</a></span>, <span class='object_link'><a href="UrlEscaping.html" title="HTTY::CLI::UrlEscaping (module)">UrlEscaping</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/htty/cli/display.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Encapsulates the display logic of <em>htty</em>&#8217;s command-line
+interface.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="FORMATS-constant" class="">FORMATS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span><span class='symbol val'>:bold</span>                    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1'</span><span class='comma token'>,</span>
+<span class='symbol val'>:underlined</span>              <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'4'</span><span class='comma token'>,</span>
+<span class='symbol val'>:blinking</span>                <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'5'</span><span class='comma token'>,</span>
+<span class='symbol val'>:inverse</span>                 <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'7'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_black</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'30'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_dark_red</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'31'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_dark_green</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'32'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_dark_yellow</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'33'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_dark_blue</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'34'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_dark_magenta</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'35'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_dark_cyan</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'36'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_light_gray</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'37'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_dark_default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'39'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_dark_gray</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1;30'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_red</span>          <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1;31'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_green</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1;32'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_yellow</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1;33'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_blue</span>         <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1;34'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_magenta</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1;35'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_cyan</span>         <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1;36'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_white</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1;37'</span><span class='comma token'>,</span>
+<span class='symbol val'>:foreground_default</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1;39'</span><span class='comma token'>,</span>
+<span class='symbol val'>:background_black</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'40'</span><span class='comma token'>,</span>
+<span class='symbol val'>:background_dark_red</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'41'</span><span class='comma token'>,</span>
+<span class='symbol val'>:background_dark_green</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'42'</span><span class='comma token'>,</span>
+<span class='symbol val'>:background_dark_yellow</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'43'</span><span class='comma token'>,</span>
+<span class='symbol val'>:background_dark_blue</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'44'</span><span class='comma token'>,</span>
+<span class='symbol val'>:background_dark_magenta</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'45'</span><span class='comma token'>,</span>
+<span class='symbol val'>:background_dark_cyan</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'46'</span><span class='comma token'>,</span>
+<span class='symbol val'>:background_light_gray</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'47'</span><span class='comma token'>,</span>
+<span class='symbol val'>:background_default</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'49'</span><span class='rbrace token'>}</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#format-instance_method" title="#format (instance method)">- (Object) <strong>format</strong>(string, *attributes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#indent-instance_method" title="#indent (instance method)">- (Object) <strong>indent</strong>(string, column = 2) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#logotype-instance_method" title="#logotype (instance method)">- (Object) <strong>logotype</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#normal-instance_method" title="#normal (instance method)">- (Object) <strong>normal</strong>(string) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notice-instance_method" title="#notice (instance method)">- (Object) <strong>notice</strong>(string) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pluralize-instance_method" title="#pluralize (instance method)">- (Object) <strong>pluralize</strong>(word, number) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#prompt-instance_method" title="#prompt (instance method)">- (Object) <strong>prompt</strong>(request) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rescuing_from-instance_method" title="#rescuing_from (instance method)">- (Object) <strong>rescuing_from</strong>(*exception_classes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#say-instance_method" title="#say (instance method)">- (Object) <strong>say</strong>(message, style = :normal) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#say_goodbye-instance_method" title="#say_goodbye (instance method)">- (Object) <strong>say_goodbye</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#say_header-instance_method" title="#say_header (instance method)">- (Object) <strong>say_header</strong>(message, style = :normal) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#say_hello-instance_method" title="#say_hello (instance method)">- (Object) <strong>say_hello</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show_headers-instance_method" title="#show_headers (instance method)">- (Object) <strong>show_headers</strong>(headers, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show_request-instance_method" title="#show_request (instance method)">- (Object) <strong>show_request</strong>(request) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show_response-instance_method" title="#show_response (instance method)">- (Object) <strong>show_response</strong>(response) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#strong-instance_method" title="#strong (instance method)">- (Object) <strong>strong</strong>(string) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#word_wrap-instance_method" title="#word_wrap (instance method)">- (Object) <strong>word_wrap</strong>(text, column = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#word_wrap_indented-instance_method" title="#word_wrap_indented (instance method)">- (Object) <strong>word_wrap_indented</strong>(text, columns = 2..80) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Adapted from
+http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#M002281.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="format-instance_method">
+  
+    - (<tt>Object</tt>) <strong>format</strong>(string, *attributes) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 40</span>
+
+<span class='def def kw'>def</span> <span class='format identifier id'>format</span><span class='lparen token'>(</span><span class='string identifier id'>string</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='attributes identifier id'>attributes</span><span class='rparen token'>)</span>
+  <span class='segments identifier id'>segments</span> <span class='assign token'>=</span> <span class='attributes identifier id'>attributes</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span>
+    <span class='dstring node'>&quot;\x1b[#{FORMATS[a]}m&quot;</span>
+  <span class='end end kw'>end</span>
+  <span class='segments identifier id'>segments</span> <span class='lshft op'>&lt;&lt;</span> <span class='string identifier id'>string</span>
+  <span class='segments identifier id'>segments</span> <span class='lshft op'>&lt;&lt;</span> <span class='string val'>&quot;\x1b[0m&quot;</span>
+  <span class='segments identifier id'>segments</span><span class='dot token'>.</span><span class='join identifier id'>join</span> <span class='string val'>''</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="indent-instance_method">
+  
+    - (<tt>Object</tt>) <strong>indent</strong>(string, column = 2) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 58</span>
+
+<span class='def def kw'>def</span> <span class='indent identifier id'>indent</span><span class='lparen token'>(</span><span class='string identifier id'>string</span><span class='comma token'>,</span> <span class='column identifier id'>column</span><span class='assign token'>=</span><span class='integer val'>2</span><span class='rparen token'>)</span>
+  <span class='dstring node'>&quot;#{' ' * column}#{string}&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="logotype-instance_method">
+  
+    - (<tt>Object</tt>) <strong>logotype</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 62</span>
+
+<span class='def def kw'>def</span> <span class='logotype identifier id'>logotype</span>
+  <span class='format identifier id'>format</span> <span class='string val'>' htty '</span><span class='comma token'>,</span> <span class='symbol val'>:bold</span><span class='comma token'>,</span> <span class='symbol val'>:background_dark_red</span><span class='comma token'>,</span> <span class='symbol val'>:foreground_yellow</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="normal-instance_method">
+  
+    - (<tt>Object</tt>) <strong>normal</strong>(string) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 70</span>
+
+<span class='def def kw'>def</span> <span class='normal identifier id'>normal</span><span class='lparen token'>(</span><span class='string identifier id'>string</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='string identifier id'>string</span>
+  <span class='comment val'># format string, :foreground_dark_default</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="notice-instance_method">
+  
+    - (<tt>Object</tt>) <strong>notice</strong>(string) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 66</span>
+
+<span class='def def kw'>def</span> <span class='notice identifier id'>notice</span><span class='lparen token'>(</span><span class='string identifier id'>string</span><span class='rparen token'>)</span>
+  <span class='dstring node'>&quot;*** #{string}&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pluralize-instance_method">
+  
+    - (<tt>Object</tt>) <strong>pluralize</strong>(word, number) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 75</span>
+
+<span class='def def kw'>def</span> <span class='pluralize identifier id'>pluralize</span><span class='lparen token'>(</span><span class='word identifier id'>word</span><span class='comma token'>,</span> <span class='number identifier id'>number</span><span class='rparen token'>)</span>
+  <span class='case case kw'>case</span> <span class='number identifier id'>number</span>
+    <span class='when when kw'>when</span> <span class='integer val'>0</span>
+      <span class='dstring node'>&quot;no #{word}s&quot;</span>
+    <span class='when when kw'>when</span> <span class='integer val'>1</span>
+      <span class='dstring node'>&quot;1 #{word}&quot;</span>
+    <span class='else else kw'>else</span>
+      <span class='dstring node'>&quot;#{number} #{word}s&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="prompt-instance_method">
+  
+    - (<tt>Object</tt>) <strong>prompt</strong>(request) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 86</span>
+
+<span class='def def kw'>def</span> <span class='prompt identifier id'>prompt</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span>
+  <span class='format_request_uri identifier id'>format_request_uri</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='dot token'>.</span><span class='uri identifier id'>uri</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='normal identifier id'>normal</span><span class='lparen token'>(</span><span class='string val'>'&gt; '</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="rescuing_from-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rescuing_from</strong>(*exception_classes) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52
+53
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 49</span>
+
+<span class='def def kw'>def</span> <span class='rescuing_from identifier id'>rescuing_from</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='exception_classes identifier id'>exception_classes</span><span class='rparen token'>)</span>
+  <span class='yield yield kw'>yield</span>
+<span class='rescue rescue kw'>rescue</span> <span class='Interrupt constant id'>Interrupt</span>
+  <span class='nil nil kw'>nil</span>
+<span class='rescue rescue kw'>rescue</span> <span class='mult op'>*</span><span class='exception_classes identifier id'>exception_classes</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
+  <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='notice identifier id'>notice</span><span class='lparen token'>(</span><span class='sentence_case identifier id'>sentence_case</span><span class='lparen token'>(</span><span class='e identifier id'>e</span><span class='dot token'>.</span><span class='message identifier id'>message</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='nil nil kw'>nil</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="say-instance_method">
+  
+    - (<tt>Object</tt>) <strong>say</strong>(message, style = :normal) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 90</span>
+
+<span class='def def kw'>def</span> <span class='say identifier id'>say</span><span class='lparen token'>(</span><span class='message identifier id'>message</span><span class='comma token'>,</span> <span class='style identifier id'>style</span><span class='assign token'>=</span><span class='symbol val'>:normal</span><span class='rparen token'>)</span>
+  <span class='puts identifier id'>puts</span> <span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='style identifier id'>style</span><span class='comma token'>,</span> <span class='notice identifier id'>notice</span><span class='lparen token'>(</span><span class='message identifier id'>message</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="say_goodbye-instance_method">
+  
+    - (<tt>Object</tt>) <strong>say_goodbye</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 94</span>
+
+<span class='def def kw'>def</span> <span class='say_goodbye identifier id'>say_goodbye</span>
+  <span class='say identifier id'>say</span> <span class='string val'>'Happy Trails To You!'</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="say_header-instance_method">
+  
+    - (<tt>Object</tt>) <strong>say_header</strong>(message, style = :normal) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 98</span>
+
+<span class='def def kw'>def</span> <span class='say_header identifier id'>say_header</span><span class='lparen token'>(</span><span class='message identifier id'>message</span><span class='comma token'>,</span> <span class='style identifier id'>style</span><span class='assign token'>=</span><span class='symbol val'>:normal</span><span class='rparen token'>)</span>
+  <span class='puts identifier id'>puts</span> <span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='style identifier id'>style</span><span class='comma token'>,</span> <span class='notice identifier id'>notice</span><span class='lparen token'>(</span><span class='string val'>''</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='highlight identifier id'>highlight</span><span class='lparen token'>(</span><span class='messag identifier id'>messag</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="say_hello-instance_method">
+  
+    - (<tt>Object</tt>) <strong>say_hello</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 102</span>
+
+<span class='def def kw'>def</span> <span class='say_hello identifier id'>say_hello</span>
+  <span class='puts identifier id'>puts</span> <span class='normal identifier id'>normal</span><span class='lparen token'>(</span><span class='notice identifier id'>notice</span><span class='lparen token'>(</span><span class='string val'>'Welcome to '</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='logotype identifier id'>logotype</span> <span class='plus op'>+</span> <span class='normal identifier id'>normal</span><span class='lparen token'>(</span><span class='string val'>', the '</span><span class='rparen token'>)</span> <span class='plus op'>+</span>
+       <span class='strong identifier id'>strong</span><span class='lparen token'>(</span><span class='string val'>'HTTP TTY'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='normal identifier id'>normal</span><span class='lparen token'>(</span><span class='string val'>'. Heck To The Yeah!'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="show_headers-instance_method">
+  
+    - (<tt>Object</tt>) <strong>show_headers</strong>(headers, options = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 107</span>
+
+<span class='def def kw'>def</span> <span class='show_headers identifier id'>show_headers</span><span class='lparen token'>(</span><span class='headers identifier id'>headers</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='show_asterisk_next_to identifier id'>show_asterisk_next_to</span>   <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:show_asterisk_next_to</span><span class='rbrack token'>]</span>
+  <span class='show_mercantile_next_to identifier id'>show_mercantile_next_to</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:show_mercantile_next_to</span><span class='rbrack token'>]</span>
+
+  <span class='asterisk_symbol identifier id'>asterisk_symbol</span><span class='comma token'>,</span> <span class='mercantile_symbol identifier id'>mercantile_symbol</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span>
+  <span class='margin identifier id'>margin</span> <span class='assign token'>=</span> <span class='headers identifier id'>headers</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span> <span class='integer val'>0</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='result identifier id'>result</span><span class='comma token'>,</span> <span class='header identifier id'>header</span><span class='bitor op'>|</span>
+    <span class='header_name identifier id'>header_name</span> <span class='assign token'>=</span> <span class='header identifier id'>header</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+    <span class='asterisk_symbol identifier id'>asterisk_symbol</span>   <span class='opasgn op'>||=</span> <span class='lparen token'>(</span><span class='header_name identifier id'>header_name</span> <span class='eq op'>==</span> <span class='show_asterisk_next_to identifier id'>show_asterisk_next_to</span><span class='rparen token'>)</span>   <span class='question op'>?</span> <span class='string val'>'*'</span> <span class='colon op'>:</span> <span class='nil nil kw'>nil</span>
+    <span class='mercantile_symbol identifier id'>mercantile_symbol</span> <span class='opasgn op'>||=</span> <span class='lparen token'>(</span><span class='header_name identifier id'>header_name</span> <span class='eq op'>==</span> <span class='show_mercantile_next_to identifier id'>show_mercantile_next_to</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='string val'>'@'</span> <span class='colon op'>:</span> <span class='nil nil kw'>nil</span>
+    <span class='asterisk identifier id'>asterisk</span>   <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='header_name identifier id'>header_name</span> <span class='eq op'>==</span> <span class='show_asterisk_next_to identifier id'>show_asterisk_next_to</span><span class='rparen token'>)</span>   <span class='question op'>?</span> <span class='asterisk_symbol identifier id'>asterisk_symbol</span>   <span class='colon op'>:</span> <span class='string val'>''</span>
+    <span class='mercantile identifier id'>mercantile</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='header_name identifier id'>header_name</span> <span class='eq op'>==</span> <span class='show_mercantile_next_to identifier id'>show_mercantile_next_to</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='mercantile_symbol identifier id'>mercantile_symbol</span> <span class='colon op'>:</span> <span class='string val'>''</span>
+    <span class='lbrack token'>[</span><span class='lparen token'>(</span><span class='header_name identifier id'>header_name</span><span class='dot token'>.</span><span class='length identifier id'>length</span> <span class='plus op'>+</span> <span class='lbrack token'>[</span><span class='asterisk identifier id'>asterisk</span><span class='dot token'>.</span><span class='length identifier id'>length</span><span class='comma token'>,</span> <span class='mercantile identifier id'>mercantile</span><span class='dot token'>.</span><span class='length identifier id'>length</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='max identifier id'>max</span><span class='rparen token'>)</span><span class='comma token'>,</span>
+     <span class='result identifier id'>result</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='max identifier id'>max</span>
+  <span class='end end kw'>end</span>
+  <span class='headers identifier id'>headers</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='bitor op'>|</span>
+    <span class='asterisk identifier id'>asterisk</span>   <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='name identifier id'>name</span> <span class='eq op'>==</span> <span class='show_asterisk_next_to identifier id'>show_asterisk_next_to</span><span class='rparen token'>)</span>   <span class='question op'>?</span> <span class='asterisk_symbol identifier id'>asterisk_symbol</span>   <span class='colon op'>:</span> <span class='nil nil kw'>nil</span>
+    <span class='mercantile identifier id'>mercantile</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='name identifier id'>name</span> <span class='eq op'>==</span> <span class='show_mercantile_next_to identifier id'>show_mercantile_next_to</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='mercantile_symbol identifier id'>mercantile_symbol</span> <span class='colon op'>:</span> <span class='nil nil kw'>nil</span>
+    <span class='justified_name identifier id'>justified_name</span> <span class='assign token'>=</span> <span class='name identifier id'>name</span><span class='dot token'>.</span><span class='rjust identifier id'>rjust</span> <span class='margin identifier id'>margin</span> <span class='minus op'>-</span>
+                     <span class='lbrack token'>[</span><span class='asterisk identifier id'>asterisk</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='length identifier id'>length</span><span class='comma token'>,</span> <span class='mercantile identifier id'>mercantile</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='length identifier id'>length</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='max identifier id'>max</span>
+    <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;#{justified_name}:#{strong(asterisk || mercantile)} &quot;</span> <span class='plus op'>+</span> <span class='value identifier id'>value</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="show_request-instance_method">
+  
+    - (<tt>Object</tt>) <strong>show_request</strong>(request) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 130</span>
+
+<span class='def def kw'>def</span> <span class='show_request identifier id'>show_request</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='rparen token'>)</span>
+  <span class='method identifier id'>method</span> <span class='assign token'>=</span> <span class='format identifier id'>format</span><span class='lparen token'>(</span><span class='dstring node'>&quot; #{request.request_method.to_s.upcase} &quot;</span><span class='comma token'>,</span> <span class='symbol val'>:inverse</span><span class='rparen token'>)</span>
+  <span class='print identifier id'>print</span> <span class='dstring node'>&quot;#{method} &quot;</span>
+  <span class='cookies_asterisk identifier id'>cookies_asterisk</span> <span class='assign token'>=</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='cookies identifier id'>cookies</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span> <span class='integer val'>? </span><span class='string val'>''</span> <span class='colon op'>:</span> <span class='strong identifier id'>strong</span><span class='lparen token'>(</span><span class='string val'>'*'</span><span class='rparen token'>)</span>
+  <span class='body_length identifier id'>body_length</span> <span class='assign token'>=</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='body identifier id'>body</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='length identifier id'>length</span>
+  <span class='body_size identifier id'>body_size</span>   <span class='assign token'>=</span> <span class='body_length identifier id'>body_length</span><span class='dot token'>.</span><span class='zero? fid id'>zero?</span> <span class='integer val'>? </span><span class='string val'>'empty'</span> <span class='colon op'>:</span> <span class='dstring node'>&quot;#{body_length}-character&quot;</span>
+  <span class='puts identifier id'>puts</span> <span class='lbrack token'>[</span><span class='format_request_uri identifier id'>format_request_uri</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='dot token'>.</span><span class='uri identifier id'>uri</span><span class='rparen token'>)</span><span class='comma token'>,</span>
+        <span class='pluralize identifier id'>pluralize</span><span class='lparen token'>(</span><span class='string val'>'header'</span><span class='comma token'>,</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='headers identifier id'>headers</span><span class='dot token'>.</span><span class='length identifier id'>length</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='cookies_asterisk identifier id'>cookies_asterisk</span><span class='comma token'>,</span>
+        <span class='dstring node'>&quot;#{body_size} body&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>' -- '</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="show_response-instance_method">
+  
+    - (<tt>Object</tt>) <strong>show_response</strong>(response) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 141</span>
+
+<span class='def def kw'>def</span> <span class='show_response identifier id'>show_response</span><span class='lparen token'>(</span><span class='response identifier id'>response</span><span class='rparen token'>)</span>
+  <span class='code identifier id'>code</span><span class='comma token'>,</span> <span class='description identifier id'>description</span> <span class='assign token'>=</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='status identifier id'>status</span>
+  <span class='case case kw'>case</span> <span class='code identifier id'>code</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span>
+    <span class='when when kw'>when</span> <span class='float val'>100</span><span class='dot3 op'>...</span><span class='integer val'>200</span><span class='comma token'>,</span> <span class='float val'>300</span><span class='dot3 op'>...</span><span class='integer val'>400</span>
+      <span class='print identifier id'>print</span> <span class='format identifier id'>format</span><span class='lparen token'>(</span><span class='dstring node'>&quot; #{code} &quot;</span><span class='comma token'>,</span> <span class='symbol val'>:background_dark_blue</span><span class='comma token'>,</span> <span class='symbol val'>:foreground_white</span><span class='rparen token'>)</span>
+    <span class='when when kw'>when</span> <span class='float val'>200</span><span class='dot3 op'>...</span><span class='integer val'>300</span>
+      <span class='print identifier id'>print</span> <span class='format identifier id'>format</span><span class='lparen token'>(</span><span class='dstring node'>&quot; #{code} &quot;</span><span class='comma token'>,</span> <span class='symbol val'>:background_dark_green</span><span class='comma token'>,</span> <span class='symbol val'>:foreground_black</span><span class='rparen token'>)</span>
+    <span class='when when kw'>when</span> <span class='float val'>500</span><span class='dot3 op'>...</span><span class='integer val'>600</span>
+      <span class='print identifier id'>print</span> <span class='format identifier id'>format</span><span class='lparen token'>(</span><span class='dstring node'>&quot; #{code} &quot;</span><span class='comma token'>,</span> <span class='symbol val'>:inverse</span><span class='comma token'>,</span> <span class='symbol val'>:blinking</span><span class='comma token'>,</span>
+                                <span class='symbol val'>:background_black</span><span class='comma token'>,</span> <span class='symbol val'>:foreground_yellow</span><span class='rparen token'>)</span>
+    <span class='else else kw'>else</span>
+      <span class='print identifier id'>print</span> <span class='format identifier id'>format</span><span class='lparen token'>(</span><span class='dstring node'>&quot; #{code} &quot;</span><span class='comma token'>,</span> <span class='symbol val'>:background_dark_red</span><span class='comma token'>,</span> <span class='symbol val'>:foreground_white</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+  <span class='print identifier id'>print</span> <span class='string val'>' '</span>
+  <span class='cookies_asterisk identifier id'>cookies_asterisk</span> <span class='assign token'>=</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='cookies identifier id'>cookies</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span> <span class='integer val'>? </span><span class='string val'>''</span> <span class='colon op'>:</span> <span class='strong identifier id'>strong</span><span class='lparen token'>(</span><span class='string val'>'*'</span><span class='rparen token'>)</span>
+  <span class='body_length identifier id'>body_length</span> <span class='assign token'>=</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='body identifier id'>body</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='length identifier id'>length</span>
+  <span class='body_size identifier id'>body_size</span>   <span class='assign token'>=</span> <span class='body_length identifier id'>body_length</span><span class='dot token'>.</span><span class='zero? fid id'>zero?</span> <span class='integer val'>? </span><span class='string val'>'empty'</span> <span class='colon op'>:</span> <span class='dstring node'>&quot;#{body_length}-character&quot;</span>
+  <span class='puts identifier id'>puts</span><span class='lparen token'>(</span><span class='lbrack token'>[</span><span class='description identifier id'>description</span><span class='comma token'>,</span>
+        <span class='pluralize identifier id'>pluralize</span><span class='lparen token'>(</span><span class='string val'>'header'</span><span class='comma token'>,</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='headers identifier id'>headers</span><span class='dot token'>.</span><span class='length identifier id'>length</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='cookies_asterisk identifier id'>cookies_asterisk</span><span class='comma token'>,</span>
+        <span class='dstring node'>&quot;#{body_size} body&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>' -- '</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="strong-instance_method">
+  
+    - (<tt>Object</tt>) <strong>strong</strong>(string) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+163
+164
+165</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 163</span>
+
+<span class='def def kw'>def</span> <span class='strong identifier id'>strong</span><span class='lparen token'>(</span><span class='string identifier id'>string</span><span class='rparen token'>)</span>
+  <span class='format identifier id'>format</span> <span class='string identifier id'>string</span><span class='comma token'>,</span> <span class='symbol val'>:bold</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="word_wrap-instance_method">
+  
+    - (<tt>Object</tt>) <strong>word_wrap</strong>(text, column = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 167</span>
+
+<span class='def def kw'>def</span> <span class='word_wrap identifier id'>word_wrap</span><span class='lparen token'>(</span><span class='text identifier id'>text</span><span class='comma token'>,</span> <span class='column identifier id'>column</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='word_wrap_indented identifier id'>word_wrap_indented</span><span class='lparen token'>(</span><span class='text identifier id'>text</span><span class='comma token'>,</span> <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='lparen token'>(</span><span class='column identifier id'>column</span> <span class='orop op'>||</span> <span class='integer val'>80</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="word_wrap_indented-instance_method">
+  
+    - (<tt>Object</tt>) <strong>word_wrap_indented</strong>(text, columns = 2..80) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Adapted from
+http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#M002281
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/display.rb', line 173</span>
+
+<span class='def def kw'>def</span> <span class='word_wrap_indented identifier id'>word_wrap_indented</span><span class='lparen token'>(</span><span class='text identifier id'>text</span><span class='comma token'>,</span> <span class='columns identifier id'>columns</span><span class='assign token'>=</span><span class='float val'>2</span><span class='dot2 op'>..</span><span class='integer val'>80</span><span class='rparen token'>)</span>
+  <span class='indent_by identifier id'>indent_by</span><span class='comma token'>,</span> <span class='wrap_at identifier id'>wrap_at</span> <span class='assign token'>=</span> <span class='columns identifier id'>columns</span><span class='dot token'>.</span><span class='min identifier id'>min</span><span class='comma token'>,</span> <span class='columns identifier id'>columns</span><span class='dot token'>.</span><span class='max identifier id'>max</span> <span class='minus op'>-</span> <span class='columns identifier id'>columns</span><span class='dot token'>.</span><span class='min identifier id'>min</span>
+  <span class='text identifier id'>text</span><span class='dot token'>.</span><span class='split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>&quot;\n&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='line identifier id'>line</span><span class='bitor op'>|</span>
+    <span class='lparen token'>(</span><span class='wrap_at identifier id'>wrap_at</span> <span class='lt op'>&lt;</span> <span class='line identifier id'>line</span><span class='dot token'>.</span><span class='length identifier id'>length</span><span class='rparen token'>)</span>                              <span class='question op'>?</span>
+    <span class='line identifier id'>line</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='dregexp node'>/(.{1,#{wrap_at}})(\s+|$)/</span><span class='comma token'>,</span> <span class='string val'>&quot;\\1\n&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='strip identifier id'>strip</span> <span class='colon op'>:</span>
+    <span class='line identifier id'>line</span>
+  <span class='end end kw'>end</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot;\n&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>&quot;\n&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='line identifier id'>line</span><span class='bitor op'>|</span>
+    <span class='indent identifier id'>indent</span> <span class='line identifier id'>line</span><span class='comma token'>,</span> <span class='indent_by identifier id'>indent_by</span>
+  <span class='end end kw'>end</span><span class='dot token'>.</span><span class='join identifier id'>join</span> <span class='string val'>&quot;\n&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Dec 18 16:47:30 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
