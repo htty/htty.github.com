@@ -215,12 +215,12 @@ Extends <em>other_module</em> with ClassMethods.
       <pre class="lines">
 
 
-26
-27
-28</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/http_method_command.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/http_method_command.rb', line 28</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='included identifier id'>included</span><span class='lparen token'>(</span><span class='other_module identifier id'>other_module</span><span class='rparen token'>)</span>
   <span class='other_module identifier id'>other_module</span><span class='dot token'>.</span><span class='extend identifier id'>extend</span> <span class='ClassMethods constant id'>ClassMethods</span>
@@ -261,8 +261,6 @@ Performs the command.
       <pre class="lines">
 
 
-33
-34
 35
 36
 37
@@ -284,10 +282,12 @@ Performs the command.
 53
 54
 55
-56</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/http_method_command.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/http_method_command.rb', line 35</span>
 
 <span class='def def kw'>def</span> <span class='perform identifier id'>perform</span>
   <span class='add_request_if_has_response identifier id'>add_request_if_has_response</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='request identifier id'>request</span><span class='bitor op'>|</span>
@@ -324,7 +324,7 @@ Performs the command.
 </div>
     
     <div id="footer">
-  Generated on Sat Dec 18 17:23:14 2010 by 
+  Generated on Sat Dec 18 17:29:17 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

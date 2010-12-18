@@ -69,7 +69,12 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>
-Contains the implementation of <em>htty</em>.
+TODO: See if we can avoid circular references without omitting these
+&#8216;require&#8217; statements require
+File.expand_path(&quot;#<em>FILE</em>/../request&quot;)
+require File.expand_path(&quot;#<em>FILE</em>/commands/cookies_use&quot;) require
+File.expand_path(&quot;#<em>FILE</em>/commands/follow&quot;)
+require File.expand_path(&quot;#<em>FILE</em>/commands/ssl_verification_off&quot;)
 </p>
 
 
@@ -121,7 +126,7 @@ The version of this release of <em>htty</em>.
 </div>
     
     <div id="footer">
-  Generated on Sat Dec 18 17:23:13 2010 by 
+  Generated on Sat Dec 18 17:29:19 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

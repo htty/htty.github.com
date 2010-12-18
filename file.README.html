@@ -70,7 +70,7 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
                                   \/
 </span></pre>
 
-<p><a href="http://htty.github.com">htty</a> is a console application for interacting with HTTP servers. It’s something of a cross between <em>curl</em> and the Lynx browser.</p>
+<p><a href="http://htty.github.com">htty</a> is a console application for interacting with HTTP servers. It’s something of a cross between <a href="http://curl.haxx.se">cURL</a> and a browser.</p>
 
 <p>See what’s changed lately by reading the <a href="http://htty.github.com/file.History.html">project history</a>. <a href="http://flattr.com/thing/68277/htty-the-HTTP-TTY" title="Flattr this"><img src="http://api.flattr.com/button/button-compact-static-100x17.png" alt="Flattr this" /></a></p>
 
@@ -86,7 +86,7 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 <h1>Features</h1>
 
 <ul>
-<li>Intuitive commands and command aliases</li>
+<li>Intuitive, Tab-completed commands and command aliases</li>
 <li>Support for familiar HTTP methods <em>GET</em>, <em>POST</em>, <em>PUT</em>, and <em>DELETE</em>, as well as <em>HEAD</em>, <em>OPTIONS</em> and <em>TRACE</em></li>
 <li>Support for HTTP Secure connections and HTTP Basic Authentication</li>
 <li>Automatic URL-encoding of userinfo, paths, query-string parameters, and page fragments</li>
@@ -205,8 +205,8 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 
 <ul>
 <li>Response codes between 200 and 299 appear <span style="background-color: green; color: black; font-weight: bold; padding: 0 0.25em 0 0.25em;">black on green</span> to indicate success</li>
-<li>Response codes between 300 and 399 appear <span style="background-color: blue; color: white; font-weight: bold; padding: 0 0.25em 0 0.25em;">white on blue</span> to indicate redirection</li>
-<li>Response codes between 400 and 499 appear <span style="background-color: red; color: white; font-weight: bold; padding: 0 0.25em 0 0.25em;">white on red</span> to indicate failure</li>
+<li>Response codes between 300 and 399 appear <span style="background-color: darkblue; color: white; font-weight: bold; padding: 0 0.25em 0 0.25em;">white on blue</span> to indicate redirection</li>
+<li>Response codes between 400 and 499 appear <span style="background-color: darkred; color: white; font-weight: bold; padding: 0 0.25em 0 0.25em;">white on red</span> to indicate failure</li>
 <li>Response codes between 500 and 599 appear <span style="background-color: yellow; color: black; font-weight: bold; padding: 0 0.25em 0 0.25em; text-decoration: blink;">flashing black on yellow</span> to indicate a server error</li>
 </ul>
 
@@ -244,10 +244,6 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 
 <p>You will also be able to pop open a browser window containing request and response bodies.</p>
 
-<h2>Shiny autocomplete goodness</h2>
-
-<p>We’ll have command command autocompletion, and possibly also Tab key navigation of forms.</p>
-
 <h2>Custom command aliases and shell emulation of <em>http-console</em></h2>
 
 <p>You should be able to make your own command aliases.</p>
@@ -270,11 +266,16 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 
 <p>The author, <a href="mailto:htty@nilsjonsson.com">Nils Jonsson</a>, owes a debt of inspiration to the <a href="http://github.com/cloudhead/http-console"><em>http-console</em></a> project.</p>
 
-<p>Thanks to contributors:</p>
+<p>Thanks to <a href="https://github.com/htty/htty/contributors" title="htty contributors at GitHub">contributors</a> (in alphabetical order):</p>
 
 <ul>
-<li>Bo Frederiksen (<a href="http://github.com/bofrede" title="bofrede at GitHub">bofrede</a>) for work on the CLI</li>
-<li>Robert Pitts (<a href="http://github.com/rbxbx" title="rbxbx at GitHub">rbxbx</a>) for work on the CLI and on RSpec specs</li>
+<li>Rob Dawson (ephox-rob/<a href="https://github.com/rojotek" title="rojotek at GitHub">rojotek</a>)</li>
+<li>Bo Frederiksen (<a href="https://github.com/bofrede" title="bofrede at GitHub">bofrede</a>)</li>
+<li>Johannes Gorset (<a href="https://github.com/jgorset" title="jgorset at GitHub">jgorset</a>)</li>
+<li>Carson McDonald (<a href="https://github.com/carsonmcdonald" title="carsonmcdonald at GitHub">carsonmcdonald</a>)</li>
+<li>Sam Nguyen (<a href="https://github.com/dtjm" title="dtjm at GitHub">dtjm</a>)</li>
+<li>Robert Pitts (<a href="https://github.com/rbxbx" title="rbxbx at GitHub">rbxbx</a>)</li>
+<li>Matt Sanders (<a href="https://github.com/mattsa" title="mattsa at GitHub">mattsa</a>)</li>
 </ul>
 
 
@@ -283,7 +284,7 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 <p>Released under the <a href="http://htty.github.com/file.MIT-LICENSE.html">MIT License</a>.</p></div></div>
     
     <div id="footer">
-  Generated on Sat Dec 18 17:07:01 2010 by 
+  Generated on Sat Dec 18 17:29:05 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
