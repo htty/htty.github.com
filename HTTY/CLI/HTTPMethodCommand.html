@@ -84,7 +84,17 @@ subclasses.
 </div>
 <div class="tags">
   
-</div>
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="HTTPMethodCommand/ClassMethods.html" title="HTTY::CLI::HTTPMethodCommand::ClassMethods (module)">ClassMethods</a></span>
+    
+   
+    
+  
+</p>
+
   <h2>Constant Summary</h2>
   
 
@@ -108,7 +118,7 @@ subclasses.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#category-class_method" title="category (class method)">+ (Object) <strong>category</strong> </a>
+      <a href="#included-class_method" title="included (class method)">+ (Object) <strong>included</strong>(other_module) </a>
     
 
     
@@ -122,8 +132,7 @@ subclasses.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Returns the name of a category under which help for the command should
-appear.
+Extends <em>other_module</em> with ClassMethods.
 </p>
 </div></span>
   
@@ -183,17 +192,16 @@ Performs the command.
     
     
       <div class="method_details first">
-  <p class="signature first" id="category-class_method">
+  <p class="signature first" id="included-class_method">
   
-    + (<tt>Object</tt>) <strong>category</strong> 
+    + (<tt>Object</tt>) <strong>included</strong>(other_module) 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Returns the name of a category under which help for the command should
-appear.
+Extends <em>other_module</em> with ClassMethods.
 </p>
 
 
@@ -207,15 +215,15 @@ appear.
       <pre class="lines">
 
 
-17
-18
-19</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/http_method_command.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/http_method_command.rb', line 25</span>
 
-<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='category identifier id'>category</span>
-  <span class='string val'>'Issuing Requests'</span>
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='included identifier id'>included</span><span class='lparen token'>(</span><span class='other_module identifier id'>other_module</span><span class='rparen token'>)</span>
+  <span class='other_module identifier id'>other_module</span><span class='dot token'>.</span><span class='extend identifier id'>extend</span> <span class='ClassMethods constant id'>ClassMethods</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -253,23 +261,23 @@ Performs the command.
       <pre class="lines">
 
 
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
 32
 33
 34
-35</pre>
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/cli/http_method_command.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/http_method_command.rb', line 32</span>
 
 <span class='def def kw'>def</span> <span class='perform identifier id'>perform</span>
   <span class='add_request_if_has_response identifier id'>add_request_if_has_response</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='request identifier id'>request</span><span class='bitor op'>|</span>
@@ -296,7 +304,7 @@ Performs the command.
 </div>
     
     <div id="footer">
-  Generated on Sat Dec 18 16:47:18 2010 by 
+  Generated on Sat Dec 18 17:03:30 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

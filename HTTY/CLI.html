@@ -191,6 +191,27 @@ Instantiates a new HTTY::CLI with the specified
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#repeat%3F-instance_method" title="#repeat? (instance method)">- (Boolean) <strong>repeat?</strong>(command_line) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#run%21-instance_method" title="#run! (instance method)">- (Object) <strong>run!</strong> </a>
     
 
@@ -209,6 +230,27 @@ Takes over stdin, stdout, and stderr to expose #session to command-line
 interaction.
 </p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#whitespace%3F-instance_method" title="#whitespace? (instance method)">- (Boolean) <strong>whitespace?</strong>(command_line) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -336,7 +378,57 @@ Returns the HTTY::Session created from command-line arguments.
     
     
       <div class="method_details first">
-  <p class="signature first" id="run!-instance_method">
+  <p class="signature first" id="repeat?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>repeat?</strong>(command_line) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli.rb', line 82</span>
+
+<span class='def def kw'>def</span> <span class='repeat? fid id'>repeat?</span><span class='lparen token'>(</span><span class='command_line identifier id'>command_line</span><span class='rparen token'>)</span>
+  <span class='command_line identifier id'>command_line</span> <span class='eq op'>==</span> <span class='Readline constant id'>Readline</span><span class='colon2 op'>::</span><span class='HISTORY constant id'>HISTORY</span><span class='dot token'>.</span><span class='to_a identifier id'>to_a</span><span class='lbrack token'>[</span><span class='integer val'>-2</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="run!-instance_method">
   
     - (<tt>Object</tt>) <strong>run!</strong> 
   
@@ -436,12 +528,62 @@ interaction.
 </table>
 </div>
     
+      <div class="method_details ">
+  <p class="signature " id="whitespace?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>whitespace?</strong>(command_line) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli.rb', line 86</span>
+
+<span class='def def kw'>def</span> <span class='whitespace? fid id'>whitespace?</span><span class='lparen token'>(</span><span class='command_line identifier id'>command_line</span><span class='rparen token'>)</span>
+  <span class='command_line identifier id'>command_line</span><span class='dot token'>.</span><span class='strip identifier id'>strip</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Sat Dec 18 16:47:23 2010 by 
+  Generated on Sat Dec 18 17:03:27 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
