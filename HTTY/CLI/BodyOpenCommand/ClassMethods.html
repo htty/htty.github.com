@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: HTTY::CLI::BodyOpenCommand::ClassMethods</title>
+<link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../../HTTY.html" title="HTTY (module)">HTTY</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../CLI.html" title="HTTY::CLI (class)">CLI</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../BodyOpenCommand.html" title="HTTY::CLI::BodyOpenCommand (module)">BodyOpenCommand</a></span></span>
+     &raquo; 
+    <span class="title">ClassMethods</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: HTTY::CLI::BodyOpenCommand::ClassMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/htty/cli/body_open_command.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#command_line_arguments-instance_method" title="#command_line_arguments (instance method)">- (Object) <strong>command_line_arguments</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the arguments for the command-line usage of the command.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#help_extended-instance_method" title="#help_extended (instance method)">- (Object) <strong>help_extended</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the extended help text for the command.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="command_line_arguments-instance_method">
+  
+    - (<tt>Object</tt>) <strong>command_line_arguments</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the arguments for the command-line usage of the command.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/body_open_command.rb', line 17</span>
+
+<span class='def def kw'>def</span> <span class='command_line_arguments identifier id'>command_line_arguments</span>
+  <span class='string val'>'[OPTIONS]'</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="help_extended-instance_method">
+  
+    - (<tt>Object</tt>) <strong>help_extended</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the extended help text for the command.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/htty/cli/body_open_command.rb', line 22</span>
+
+<span class='def def kw'>def</span> <span class='help_extended identifier id'>help_extended</span>
+  <span class='dstring node'>&quot;#{help_extended_preamble}\n&quot;</span>                                            <span class='plus op'>+</span>
+  <span class='string val'>&quot;\n&quot;</span>                                                                     <span class='plus op'>+</span>
+  <span class='string val'>'The shell command used to launch the program is platform-specific. On '</span> <span class='plus op'>+</span>
+  <span class='string val'>&quot;Windows, the 'start' command is used. On other platforms, the 'open' &quot;</span>  <span class='plus op'>+</span>
+  <span class='string val'>&quot;command is used. (The 'open' command may not be available on your &quot;</span>     <span class='plus op'>+</span>
+  <span class='string val'>&quot;system.)\n&quot;</span>                                                             <span class='plus op'>+</span>
+  <span class='string val'>&quot;\n&quot;</span>                                                                     <span class='plus op'>+</span>
+  <span class='string val'>'You may specify options to be passed to the program. For example, on '</span>  <span class='plus op'>+</span>
+  <span class='string val'>'Mac OS X, your default program for HTML files may be Google Chrome, '</span>   <span class='plus op'>+</span>
+  <span class='string val'>'but you can launch Firefox instead by typing '</span>                          <span class='plus op'>+</span>
+  <span class='dstring node'>&quot;#{strong command_line + ' -a firefox'}. Likewise, on Windows your &quot;</span>     <span class='plus op'>+</span>
+  <span class='string val'>'default program for HTML files may be Internet Explorer, but you can '</span>  <span class='plus op'>+</span>
+  <span class='dstring node'>&quot;launch Opera instead by typing #{strong command_line + ' opera'}.&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Fri Feb 25 01:41:27 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.4 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

@@ -290,7 +290,7 @@ Performs the command.
       <pre class="code"><span class="info file"># File 'lib/htty/cli/http_method_command.rb', line 35</span>
 
 <span class='def def kw'>def</span> <span class='perform identifier id'>perform</span>
-  <span class='add_request_if_has_response identifier id'>add_request_if_has_response</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='request identifier id'>request</span><span class='bitor op'>|</span>
+  <span class='add_request_if_new identifier id'>add_request_if_new</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='request identifier id'>request</span><span class='bitor op'>|</span>
     <span class='unless unless kw'>unless</span> <span class='body? fid id'>body?</span> <span class='orop op'>||</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='body identifier id'>body</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span>
       <span class='puts identifier id'>puts</span> <span class='notice identifier id'>notice</span><span class='lparen token'>(</span><span class='dstring node'>&quot;The body of your #{method.to_s.upcase} request is not &quot;</span> <span class='plus op'>+</span>
                   <span class='string val'>'being sent'</span><span class='rparen token'>)</span>
@@ -324,9 +324,9 @@ Performs the command.
 </div>
     
     <div id="footer">
-  Generated on Sat Dec 18 17:29:17 2010 by 
+  Generated on Fri Feb 25 01:41:28 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.3 (ruby-1.8.7).
+  0.6.4 (ruby-1.8.7).
 </div>
 
   </body>

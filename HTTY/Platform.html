@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta name="Content-Type" content="text/html; charset=utf-8" />
-<title>Exception: HTTY::NoLocationHeaderError</title>
+<title>Module: HTTY::Platform</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
@@ -23,10 +23,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (N)</a> &raquo; 
+    <a href="../_index.html">Index (P)</a> &raquo; 
     <span class='title'><span class='object_link'><a href="../HTTY.html" title="HTTY (module)">HTTY</a></span></span>
      &raquo; 
-    <span class="title">NoLocationHeaderError</span>
+    <span class="title">Platform</span>
   
   
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -43,7 +43,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Exception: HTTY::NoLocationHeaderError
+    <div id="content"><h1>Module: HTTY::Platform
   
   
   
@@ -51,23 +51,6 @@
 
 <dl class="box">
   
-    <dt class="r1">Inherits:</dt>
-    <dd class="r1">
-      <span class="inheritName">StandardError</span>
-      
-        <ul class="fullTree">
-          <li>Object</li>
-          
-            <li class="next">StandardError</li>
-          
-            <li class="next">HTTY::NoLocationHeaderError</li>
-          
-        </ul>
-        <a href="#" class="inheritanceTree">show all</a>
-      
-      </dd>
-    
-  
   
     
   
@@ -75,8 +58,8 @@
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/htty/no_location_header_error.rb</dd>
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/htty/platform.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -84,8 +67,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>
-Indicates that the <em>Location</em> header was missing from
-HTTY::Request#response.
+Provides methods for ascertaining system characteristics.
 </p>
 
 
@@ -95,11 +77,10 @@ HTTY::Request#response.
   
 </div>
 
-  
 
   
     <h2>
-      Instance Method Summary
+      Class Method Summary
       <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
     </h2>
 
@@ -108,14 +89,12 @@ HTTY::Request#response.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (NoLocationHeaderError) <strong>initialize</strong> </a>
+      <a href="#windows%3F-class_method" title="windows? (class method)">+ (Boolean) <strong>windows?</strong> </a>
     
 
     
   </span>
   
-    <span class="note title constructor">constructor</span>
-  
   
   
   
@@ -123,10 +102,7 @@ HTTY::Request#response.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-A new instance of NoLocationHeaderError.
-</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -135,58 +111,67 @@ A new instance of NoLocationHeaderError.
   
 
 
-  <div id="constructor_details" class="method_details_list">
-  <h2>Constructor Details</h2>
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="windows?-class_method">
   
-    <div class="method_details first">
-  <p class="signature first" id="initialize-instance_method">
-  
-    - (<tt><span class='object_link'><a href="" title="HTTY::NoLocationHeaderError (class)">NoLocationHeaderError</a></span></tt>) <strong>initialize</strong> 
+    + (<tt>Boolean</tt>) <strong>windows?</strong> 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-A new instance of NoLocationHeaderError
-</p>
-
+    
 
   </div>
 </div>
 <div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
   
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-8
-9
-10
-11</pre>
+6
+7
+8</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/htty/no_location_header_error.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/htty/platform.rb', line 6</span>
 
-<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span>
-  <span class='super super kw'>super</span> <span class='string val'>'response does not have a '</span> <span class='plus op'>+</span>
-        <span class='dstring node'>&quot;'#{HTTY::Response::LOCATION_HEADER_NAME}' header&quot;</span>
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='windows? fid id'>windows?</span>
+  <span class='notop op'>!</span><span class='lparen token'>(</span><span class='RUBY_PLATFORM constant id'>RUBY_PLATFORM</span> <span class='match op'>=~</span> <span class='regexp val'>/(mswin|mingw)/i</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
   </tr>
 </table>
 </div>
-  
-</div>
-
+    
+  </div>
 
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 25 01:41:33 2011 by 
+  Generated on Fri Feb 25 01:41:36 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.4 (ruby-1.8.7).
 </div>
