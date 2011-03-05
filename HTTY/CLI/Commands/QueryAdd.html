@@ -605,7 +605,7 @@ Performs the _query-add_ command.
     <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='notify_if_cookies_cleared identifier id'>notify_if_cookies_cleared</span> <span class='request identifier id'>request</span> <span class='do do kw'>do</span>
       <span class='escaped_arguments identifier id'>escaped_arguments</span> <span class='assign token'>=</span> <span class='escape_or_warn_of_escape_sequences identifier id'>escape_or_warn_of_escape_sequences</span><span class='lparen token'>(</span><span class='arguments identifier id'>arguments</span><span class='rparen token'>)</span>
       <span class='escaped_arguments identifier id'>escaped_arguments</span><span class='dot token'>.</span><span class='each_slice identifier id'>each_slice</span> <span class='integer val'>2</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='bitor op'>|</span>
-        <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='query_add identifier id'>query_add</span> <span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
+        <span class='request identifier id'>request</span> <span class='assign token'>=</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='query_add identifier id'>query_add</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
       <span class='end end kw'>end</span>
       <span class='request identifier id'>request</span>
     <span class='end end kw'>end</span>
@@ -622,7 +622,7 @@ Performs the _query-add_ command.
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 25 01:41:22 2011 by 
+  Generated on Sat Mar  5 05:53:26 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.4 (ruby-1.8.7).
 </div>
