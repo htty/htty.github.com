@@ -70,18 +70,18 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
                                   \/
 </span></pre>
 
-<p><a href="http://htty.github.com">htty</a> is a console application for interacting with web servers. It’s a fun way to explore web APIs and to learn the ins and outs of HTTP.</p>
+<p><a href="http://htty.github.com">htty</a> is a console application for interacting with web servers. It's a fun way to explore web APIs and to learn the ins and outs of HTTP.</p>
 
-<p>See what’s changed lately by reading the <a href="http://htty.github.com/file.History.html">project history</a>. <a href="http://flattr.com/thing/68277/htty-the-HTTP-TTY" title="Flattr this"><img src="http://api.flattr.com/button/button-compact-static-100x17.png" alt="Flattr this" /></a></p>
+<p>See what's changed lately by reading the <a href="http://htty.github.com/file.History.html">project history</a>. <a href="http://flattr.com/thing/68277/htty-the-HTTP-TTY" title="Flattr this"><img src="http://api.flattr.com/button/button-compact-static-100x17.png" alt="Flattr this" /></a></p>
 
 <h1><a name="installation"></a>Installation</h1>
 
-<p>It couldn’t be much easier.</p>
+<p>It couldn't be much easier.</p>
 
 <pre class="code">$ <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='htty identifier id'>htty</span>
 </pre>
 
-<p>You’ll need Ruby and RubyGems. It’s known to work well under OS X against Ruby v1.8.7 and v1.9.2.</p>
+<p>You'll need Ruby and RubyGems. It's known to work well under OS X against Ruby v1.8.7 and v1.9.2.</p>
 
 <h1><a name="features"></a>Features</h1>
 
@@ -102,7 +102,7 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 <ul>
 <li><strong>Build a request</strong> — you can tweak the address, headers, cookies, and body at will</li>
 <li><strong>Send the request to the server</strong> — after the request is sent, it remains unchanged in your session history</li>
-<li><strong>Inspect the server’s response</strong> — you can look at the status, headers, cookies, and body in various ways</li>
+<li><strong>Inspect the server's response</strong> — you can look at the status, headers, cookies, and body in various ways</li>
 <li><strong>Review history</strong> — a normal and a verbose transcript of your session are available at all times (destroyed when you quit <em>htty</em>)</li>
 <li><strong>Reuse previous requests</strong> — you can refer to prior requests and copy them</li>
 </ul>
@@ -118,7 +118,7 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 
 <p><img src="http://htty.github.com/images/esvapi1.png" alt="ESV Bible Web Service example #1" /></p>
 
-<p>You can point <em>htty</em> at a complete or partial web URL. If you don’t supply a URL, http://0.0.0.0/ (port 80) will be used. You can vary the protocol scheme, userinfo, host, port, path, query string, and fragment as you wish.</p>
+<p>You can point <em>htty</em> at a complete or partial web URL. If you don't supply a URL, http://0.0.0.0/ (port 80) will be used. You can vary the protocol scheme, userinfo, host, port, path, query string, and fragment as you wish.</p>
 
 <p>The <em>htty</em> shell prompt shows the address of the current request.</p>
 
@@ -128,7 +128,7 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 
 <p><img src="http://htty.github.com/images/esvapi2.png" alt="ESV Bible Web Service example #2" /></p>
 
-<p>You can tweak segments of the address at will. Here we are navigating the site’s path hierarchy, which you can do with relative as well as absolute pathspecs.</p>
+<p>You can tweak segments of the address at will. Here we are navigating the site's path hierarchy, which you can do with relative as well as absolute pathspecs.</p>
 
 <p><img src="http://htty.github.com/images/esvapi3.png" alt="ESV Bible Web Service example #3" /></p>
 
@@ -138,7 +138,7 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 
 <p><img src="http://htty.github.com/images/esvapi4.png" alt="ESV Bible Web Service example #4" /></p>
 
-<p>There was some cruft in the web service’s response (a horizontal line, a passage reference, verse numbers, a copyright stamp, and line breaks). We eliminate it by using API options provided by the web service we’re talking to.</p>
+<p>There was some cruft in the web service's response (a horizontal line, a passage reference, verse numbers, a copyright stamp, and line breaks). We eliminate it by using API options provided by the web service we're talking to.</p>
 
 <p>We do a Julia Child maneuver and use the <code>address</code> command to change the entire URL, rather than add individual query-string parameters one by one.</p>
 
@@ -146,7 +146,7 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 
 <h2><a name="cookies-example"></a>Working with cookies</h2>
 
-<p>The next example demonstrates <em>htty</em>’s HTTP Secure support and cookies features, as well as how to review and revisit past requests.</p>
+<p>The next example demonstrates <em>htty</em>'s HTTP Secure support and cookies features, as well as how to review and revisit past requests.</p>
 
 <p><img src="http://htty.github.com/images/google1.png" alt="Google example #1" /></p>
 
@@ -168,9 +168,9 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 
 <h2><a name="history-example"></a>Understanding complex HTTP conversations at a glance using history</h2>
 
-<p>Now we’ll look at <em>htty</em>’s HTTP Basic Authentication support and learn how to display unabbreviated transcripts of <em>htty</em> sessions.</p>
+<p>Now we'll look at <em>htty</em>'s HTTP Basic Authentication support and learn how to display unabbreviated transcripts of <em>htty</em> sessions.</p>
 
-<p>Assume that we have the following Sinatra application listening on Sinatra’s default port, 4567.</p>
+<p>Assume that we have the following Sinatra application listening on Sinatra's default port, 4567.</p>
 
 <pre class="code"><span class='require identifier id'>require</span> <span class='string val'>'sinatra'</span>
 
@@ -219,7 +219,7 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 
 <p>You can learn how to use <em>htty</em> commands from within <em>htty</em>.</p>
 
-<p><img src="http://htty.github.com/images/help.png" alt="htty’s built-in help" /></p>
+<p><img src="http://htty.github.com/images/help.png" alt="htty's built-in help" /></p>
 
 <p>The <code>help</code> command takes an optional argument of the abbreviated or full name of a command.</p>
 
@@ -254,7 +254,7 @@ m888N= 888&gt;   'Y&quot;</span>       <span class='string val'>'Y&quot;      &q
 
 <p>Report defects and feature requests on <a href="http://github.com/htty/htty/issues">GitHub Issues</a>.</p>
 
-<p>Your patches are welcome, and you will receive attribution here for good stuff. Fork <a href="http://github.com/htty/htty" title="htty’s ‘htty’ repository at GitHub">the official <em>htty</em> repository</a> and send a pull request.</p>
+<p>Your patches are welcome, and you will receive attribution here for good stuff. Fork <a href="http://github.com/htty/htty" title="htty's ‘htty' repository at GitHub">the official <em>htty</em> repository</a> and send a pull request.</p>
 
 <h1><a name="contact"></a>News and information</h1>
 
